@@ -19,6 +19,7 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        // nav 세팅 완료됨
         return binding.root
     }
 
