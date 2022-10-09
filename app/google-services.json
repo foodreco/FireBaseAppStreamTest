@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "832084630220",
+    "project_id": "fir-appstreamtest",
+    "storage_bucket": "fir-appstreamtest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832084630220:android:26e70beb9d75f6819e8069",
+        "android_client_info": {
+          "package_name": "com.dreamreco.firebaseappstreamtest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832084630220-f89tqgqni22onur131g9ptecjql1jfu3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDks4bmPhtWba9yHkCttUhIwE1nBAinpgY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "832084630220-f89tqgqni22onur131g9ptecjql1jfu3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
