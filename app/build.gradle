@@ -15,8 +15,8 @@ android {
         applicationId "com.dreamreco.firebaseappstreamtest"
         minSdk 26
         targetSdk 32
-        versionCode 1 //TODO : 변경 적용하기
-        versionName "1.0"
+        versionCode 2 //TODO : 변경 적용하기
+        versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -29,7 +29,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
