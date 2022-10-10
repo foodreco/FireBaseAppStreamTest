@@ -49,6 +49,9 @@ class MainFragment : Fragment() {
 //        2. build 해서 내부테스트
 //        3. firebase 넣어서 내부테스트
 //        재연성 나오는지 확인
+        // TODO : 테스트 결과 동일 현상 확인됨!!
+        // TODO : MyData MyDrink 와 같은 것들만 영향을 받는 것으로 보임
+        // TODO : DB 관련 모듈을 조정해서 원복할 수 없을까??
 
         with(binding) {
             btnToList.setOnClickListener {

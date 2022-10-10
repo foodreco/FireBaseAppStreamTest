@@ -44,7 +44,7 @@ data class MyDate(
 ) : Parcelable
 
 @Parcelize
-data class MyDrink(
+data class MyDrink (
     var drinkType: String?,
     var drinkName: String?,
     var POA: String?,

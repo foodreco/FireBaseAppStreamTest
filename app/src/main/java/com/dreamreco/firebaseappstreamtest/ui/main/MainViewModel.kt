@@ -29,7 +29,7 @@ class MainViewModel @Inject constructor(
     fun insertDiaryBase() {
         viewModelScope.launch {
             val newMyDate = MyDate((2020..2022).random(), (1..12).random(), (1..31).random())
-            val newCalendarDay = CalendarDay.from(newMyDate.year, newMyDate.month, newMyDate.day)
+            val newCalendarDay = CalendarDay.from(newMyDate.year, newMyDate.month-1, newMyDate.day)
             val newMyDrink = MyDrink(
                 getRandomString(3),
                 getRandomString(4),
@@ -61,7 +61,7 @@ class MainViewModel @Inject constructor(
     fun insertOnlyBasic() {
         viewModelScope.launch {
             val newMyDate = MyDate((2020..2022).random(), (1..12).random(), (1..31).random())
-            val newCalendarDay = CalendarDay.from(newMyDate.year, newMyDate.month, newMyDate.day)
+            val newCalendarDay = CalendarDay.from(newMyDate.year, newMyDate.month-1, newMyDate.day)
             val newMyDrink = MyDrink(
                 getRandomString(3),
                 getRandomString(4),

@@ -52,7 +52,7 @@ class Converters {
 class MyDateTypeConverter(private val gson: Gson) {
 
     @TypeConverter
-    fun listToJson(value: MyDate): String? {
+    fun listToJson(value: MyDate): String {
         return gson.toJson(value)
     }
 
@@ -68,12 +68,12 @@ class MyDrinkTypeConverter(private val gson: Gson) {
 
     @TypeConverter
     fun listToJson(value : MyDrink?): String? {
-        return gson.toJson(value)
+        return if(value == null) null else gson.toJson(value)
     }
 
     @TypeConverter
     fun jsonToList(value: String?): MyDrink? {
-        return gson.fromJson(value, MyDrink::class.java)
+        return if (value == null) null else gson.fromJson(value, MyDrink::class.java)
     }
 }
 
