@@ -50,8 +50,14 @@ class MainFragment : Fragment() {
 //        3. firebase 넣어서 내부테스트
 //        재연성 나오는지 확인
         // TODO : 테스트 결과 동일 현상 확인됨!!
-        // TODO : MyData MyDrink 와 같은 것들만 영향을 받는 것으로 보임
-        // TODO : DB 관련 모듈을 조정해서 원복할 수 없을까??
+        // TODO : MyData MyDrink 와 같은 converter 가 적용된 것들만 영향을 받는 것으로 보임
+        // TODO : 단, CalendarDay 는 converter 적용임에도 이상없음
+        // TODO : 직접 커스터마이징 한 data class 만 이상발생함
+        // TODO : DB 관련 모듈을 조정해서 원복할 수 없을까?? -> 알 수 없음
+
+        // #1. converter return null 직접대입 versionCode4 -> 효과없음
+        // #2. converter Gson 부분 변경 versionCode5 -> 효과없음
+        // #3. Migration + SDK 동시 적용 양호한지 확인
 
         with(binding) {
             btnToList.setOnClickListener {

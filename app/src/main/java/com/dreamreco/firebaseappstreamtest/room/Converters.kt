@@ -45,43 +45,63 @@ class Converters {
         return Gson().fromJson(value, Array<String>::class.java).toList()
     }
 
+    @TypeConverter
+    fun myDrinkToJson(value : MyDrink?): String? {
+        return if(value == null) null else Gson().toJson(value)
+    }
+
+    @TypeConverter
+    fun jsonToMyDrink(value: String?): MyDrink? {
+        return if (value == null) null else Gson().fromJson(value, MyDrink::class.java)
+    }
+
+    @TypeConverter
+    fun myDateToJson(value: MyDate): String {
+        return Gson().toJson(value)
+    }
+
+    @TypeConverter
+    fun jsonToMyDate(value: String): MyDate {
+        return Gson().fromJson(value, MyDate::class.java)
+    }
+
 }
 
 // entity 에 data class 를 넣기 위해 필요
 @ProvidedTypeConverter
 class MyDateTypeConverter(private val gson: Gson) {
 
-    @TypeConverter
-    fun listToJson(value: MyDate): String {
-        return gson.toJson(value)
-    }
-
-    @TypeConverter
-    fun jsonToList(value: String): MyDate {
-        return gson.fromJson(value, MyDate::class.java)
-    }
+//    @TypeConverter
+//    fun listToJson(value: MyDate): String {
+//        return gson.toJson(value)
+//    }
+//
+//    @TypeConverter
+//    fun jsonToList(value: String): MyDate {
+//        return gson.fromJson(value, MyDate::class.java)
+//    }
 }
 
 // entity 에 data class 를 넣기 위해 필요 #2
 @ProvidedTypeConverter
 class MyDrinkTypeConverter(private val gson: Gson) {
 
-    @TypeConverter
-    fun listToJson(value : MyDrink?): String? {
-        return if(value == null) null else gson.toJson(value)
-    }
-
-    @TypeConverter
-    fun jsonToList(value: String?): MyDrink? {
-        return if (value == null) null else gson.fromJson(value, MyDrink::class.java)
-    }
+//    @TypeConverter
+//    fun listToJson(value : MyDrink?): String? {
+//        return if(value == null) null else gson.toJson(value)
+//    }
+//
+//    @TypeConverter
+//    fun jsonToList(value: String?): MyDrink? {
+//        return if (value == null) null else gson.fromJson(value, MyDrink::class.java)
+//    }
 }
 
 @ProvidedTypeConverter
 class CalendarDayTypeConverter(private val gson: Gson) {
 
     @TypeConverter
-    fun listToJson(value: CalendarDay): String? {
+    fun listToJson(value: CalendarDay): String {
         return gson.toJson(value)
     }
 

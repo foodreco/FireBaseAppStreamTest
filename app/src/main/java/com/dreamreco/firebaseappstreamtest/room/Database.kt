@@ -15,11 +15,25 @@ import com.dreamreco.firebaseappstreamtest.room.entity.OnlyBasic
     version = 1,
     exportSchema = true
 )
-@TypeConverters(value = [Converters::class, MyDateTypeConverter::class, MyDrinkTypeConverter::class, CalendarDayTypeConverter::class])
+@TypeConverters(value = [Converters::class, CalendarDayTypeConverter::class])
 abstract class Database : RoomDatabase() {
     abstract val diaryDao: DiaryBaseDao
     abstract val onlyBasicDao : OnlyBasicDao
 }
+
+//@Database(
+//    entities = [DiaryBase::class, OnlyBasic::class],
+//    version = 2,
+//    exportSchema = true,
+//    autoMigrations = [
+//        AutoMigration(from = 1, to = 2)
+//    ]
+//)
+//@TypeConverters(value = [Converters::class, CalendarDayTypeConverter::class])
+//abstract class Database : RoomDatabase() {
+//    abstract val diaryDao: DiaryBaseDao
+//    abstract val onlyBasicDao : OnlyBasicDao
+//}
 
 //
 //@Database(

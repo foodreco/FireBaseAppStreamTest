@@ -2,6 +2,8 @@ package com.dreamreco.firebaseappstreamtest.room
 
 import android.content.Context
 import androidx.room.Room
+import androidx.room.TypeConverter
+import androidx.room.TypeConverters
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -28,8 +30,8 @@ object DataBaseModule {
     fun provideDatabase (@ApplicationContext context: Context, gson: Gson): Database {
         return Room
             .databaseBuilder(context, Database::class.java, DB_NAME)
-            .addTypeConverter(MyDateTypeConverter(gson)) // 'MyDate' converter
-            .addTypeConverter(MyDrinkTypeConverter(gson)) // 'MyDrink' converter
+//            .addTypeConverter(MyDateTypeConverter(gson)) // 'MyDate' converter
+//            .addTypeConverter(MyDrinkTypeConverter(gson)) // 'MyDrink' converter
             .addTypeConverter(CalendarDayTypeConverter(gson)) // 'CalendarDay' converter
             .build()
     }
