@@ -19,3 +19,17 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+#-Error inflating class androidx.fragment.app.FragmentContainerView 에러 해결용
+-keepnames class androidx.navigation.fragment.NavHostFragment
+-keep class * extends androidx.fragment.app.Fragment{}
+
+#-Error inflating class androidx.fragment.app.FragmentContainerView 에러 해결용 2
+-keepnames class * implements android.os.Parcelable
+-keepnames class com.dreamreco.firebaseappstreamtest.room.entity.DiaryBase
+
+# Caused by: java.lang.ClassNotFoundException: com.google.android.play.core.review 에러 해결용
+-keep class com.google.android.play.core.** { *; }
+
+# 검색 서치뷰 사용 시 에러 해결용
+-keep class androidx.appcompat.widget.SearchView { *; }

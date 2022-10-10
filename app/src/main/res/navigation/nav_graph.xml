@@ -9,5 +9,48 @@
         android:id="@+id/mainFragment"
         android:name="com.dreamreco.firebaseappstreamtest.ui.main.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_onlyFragment"
+            app:destination="@id/onlyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.dreamreco.firebaseappstreamtest.ui.list.ListFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFragment_to_popUpFragment"
+            app:destination="@id/popUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onlyFragment"
+        android:name="com.dreamreco.firebaseappstreamtest.ui.list2.OnlyFragment"
+        android:label="OnlyFragment"
+        tools:layout="@layout/fragment_only" >
+        <action
+            android:id="@+id/action_onlyFragment_to_popUpFragment2"
+            app:destination="@id/popUpFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/popUpFragment"
+        android:name="com.dreamreco.firebaseappstreamtest.ui.popup.PopUpFragment"
+        android:label="fragment_pop_up"
+        tools:layout="@layout/fragment_pop_up" >
+        <argument
+            android:name="diaryBase"
+            app:argType="com.dreamreco.firebaseappstreamtest.room.entity.DiaryBase" />
+    </fragment>
+    <fragment
+        android:id="@+id/popUpFragment2"
+        android:name="com.dreamreco.firebaseappstreamtest.ui.popup.PopUpFragment2"
+        android:label="PopUpFragment2"
+        tools:layout="@layout/fragment_pop_up">
+        <argument
+            android:name="onlyBasic"
+            app:argType="com.dreamreco.firebaseappstreamtest.room.entity.OnlyBasic" />
+    </fragment>
 </navigation>
