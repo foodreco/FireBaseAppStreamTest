@@ -22,7 +22,7 @@ class PopUpFragment : Fragment() {
         with(binding) {
             title.text = args.diaryBaseAlpha.title
             content.text = args.diaryBaseAlpha.content
-            myDrink.text = "${args.diaryBaseAlpha.drinkType}·${args.diaryBaseAlpha.drinkName}·${args.diaryBaseAlpha.POA}mL·${args.diaryBaseAlpha.VOD}%"
+            myDrink.text = "${args.diaryBaseAlpha.drinkType}·${args.diaryBaseAlpha.drinkName}·${args.diaryBaseAlpha.POA}%·${args.diaryBaseAlpha.VOD}mL"
             mydate.text = "${args.diaryBaseAlpha.year}년${args.diaryBaseAlpha.month}월${args.diaryBaseAlpha.day}일"
             calendarDay.text = args.diaryBaseAlpha.calendarDay.toString()
             importance.text = args.diaryBaseAlpha.importance.toString()
