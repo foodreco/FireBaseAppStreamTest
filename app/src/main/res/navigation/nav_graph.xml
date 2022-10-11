@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_mainFragment_to_onlyFragment"
             app:destination="@id/onlyFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_listStringFragment"
+            app:destination="@id/listStringFragment" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"
@@ -41,8 +44,8 @@
         android:label="fragment_pop_up"
         tools:layout="@layout/fragment_pop_up" >
         <argument
-            android:name="diaryBase"
-            app:argType="com.dreamreco.firebaseappstreamtest.room.entity.DiaryBase" />
+            android:name="diaryBaseAlpha"
+            app:argType="com.dreamreco.firebaseappstreamtest.room.entity.DiaryBaseAlpha" />
     </fragment>
     <fragment
         android:id="@+id/popUpFragment2"
@@ -53,4 +56,9 @@
             android:name="onlyBasic"
             app:argType="com.dreamreco.firebaseappstreamtest.room.entity.OnlyBasic" />
     </fragment>
+    <fragment
+        android:id="@+id/listStringFragment"
+        android:name="com.dreamreco.firebaseappstreamtest.ui.list2.ListStringFragment"
+        android:label="fragment_list_string"
+        tools:layout="@layout/fragment_list_string" />
 </navigation>

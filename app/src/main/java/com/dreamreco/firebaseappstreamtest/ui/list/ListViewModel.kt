@@ -3,9 +3,13 @@ package com.dreamreco.firebaseappstreamtest.ui.list
 import android.app.Application
 import androidx.lifecycle.*
 import com.dreamreco.firebaseappstreamtest.MyMonth
+import com.dreamreco.firebaseappstreamtest.room.dao.DiaryBaseAlphaDao
 import com.dreamreco.firebaseappstreamtest.room.dao.DiaryBaseDao
+import com.dreamreco.firebaseappstreamtest.room.dao.KeywordRoomLiveDao
 import com.dreamreco.firebaseappstreamtest.room.dao.OnlyBasicDao
 import com.dreamreco.firebaseappstreamtest.room.entity.DiaryBase
+import com.dreamreco.firebaseappstreamtest.room.entity.DiaryBaseAlpha
+import com.dreamreco.firebaseappstreamtest.room.entity.KeywordRoomLive
 import com.dreamreco.firebaseappstreamtest.room.entity.OnlyBasic
 import com.dreamreco.firebaseappstreamtest.toMyMonth
 import com.dreamreco.firebaseappstreamtest.ui.list2.OnlyFragmentAdapterBase
@@ -15,8 +19,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ListViewModel @Inject constructor(
-    private val database: DiaryBaseDao,
-    private val databaseOnly:OnlyBasicDao,
+    private val database: DiaryBaseAlphaDao,
+    private val databaseOnly: OnlyBasicDao,
+    private val databaseKeyword: KeywordRoomLiveDao,
     application: Application
 ) : AndroidViewModel(application) {
 
@@ -26,7 +31,7 @@ class ListViewModel @Inject constructor(
     private val _onlyFragmentDiaryData = MutableLiveData<List<OnlyFragmentAdapterBase>>()
     val onlyFragmentDiaryData: LiveData<List<OnlyFragmentAdapterBase>> = _onlyFragmentDiaryData
 
-    fun getAllDataDESC(): LiveData<List<DiaryBase>> {
+    fun getAllDataDESC(): LiveData<List<DiaryBaseAlpha>> {
         return database.getAllDiaryBaseByDateDESC().asLiveData()
     }
 
@@ -34,11 +39,11 @@ class ListViewModel @Inject constructor(
         return databaseOnly.getAllDiaryBaseByDateDESC().asLiveData()
     }
 
-    fun getAllDataASC(): LiveData<List<DiaryBase>> {
+    fun getAllDataASC(): LiveData<List<DiaryBaseAlpha>> {
         return database.getAllDiaryBaseByDateASC().asLiveData()
     }
 
-    fun getDiaryDataImportant(): LiveData<List<DiaryBase>> {
+    fun getDiaryDataImportant(): LiveData<List<DiaryBaseAlpha>> {
         return database.getDiaryBaseByImportance().asLiveData()
     }
 
@@ -46,7 +51,7 @@ class ListViewModel @Inject constructor(
         return databaseOnly.getDiaryBaseByImportance().asLiveData()
     }
 
-    fun makeList(diaryData: List<DiaryBase>) {
+    fun makeList(diaryData: List<DiaryBaseAlpha>) {
         viewModelScope.launch {
             val listItems = diaryData.toListItems()
             _listFragmentDiaryData.postValue(listItems)
@@ -61,23 +66,23 @@ class ListViewModel @Inject constructor(
     }
 
     // DB 에서 가져온 리스트 가공 (미리 날짜별로 정렬한 리스트를 가져와야 함)
-    private fun List<DiaryBase>.toListItems(): List<ListFragmentAdapterBase> {
+    private fun List<DiaryBaseAlpha>.toListItems(): List<ListFragmentAdapterBase> {
         val result = arrayListOf<ListFragmentAdapterBase>() // 결과를 리턴할 리스트
-        if (this == emptyList<DiaryBase>()) {
+        if (this == emptyList<DiaryBaseAlpha>()) {
             result.add(ListFragmentAdapterBase.EmptyHeader())
         } else {
             var headerMonth = MyMonth(0, 0) // 기준
-            this.forEach { diaryBase ->
+            this.forEach { DiaryBaseAlpha ->
                 // month 가 달라지면 그룹헤더를 추가.
-                if (headerMonth != diaryBase.calendarDay.toMyMonth()) {
-                    result.add(ListFragmentAdapterBase.DateHeader(diaryBase))
+                if (headerMonth != DiaryBaseAlpha.calendarDay.toMyMonth()) {
+                    result.add(ListFragmentAdapterBase.DateHeader(DiaryBaseAlpha))
                 }
 
                 // 그때의 item 추가.
-                result.add(ListFragmentAdapterBase.Item(diaryBase))
+                result.add(ListFragmentAdapterBase.Item(DiaryBaseAlpha))
 
                 // 그룹날짜를 바로 이전 날짜로 설정.
-                headerMonth = diaryBase.calendarDay.toMyMonth()
+                headerMonth = DiaryBaseAlpha.calendarDay.toMyMonth()
             }
         }
         return result
@@ -106,21 +111,21 @@ class ListViewModel @Inject constructor(
         return result
     }
 
-    fun getAllDiaryBase(): LiveData<List<DiaryBase>> {
+    fun getAllDiaryBase(): LiveData<List<DiaryBaseAlpha>> {
         return database.getAllDiaryBase().asLiveData()
     }
 
     /** list 검색 시 주종, 제품, 도수, 키워드 항목을 검색하는 코드 */
-    fun filtering(searchQuery: String, totalList: List<DiaryBase>) {
+    fun filtering(searchQuery: String, totalList: List<DiaryBaseAlpha>) {
         viewModelScope.launch {
-            if (totalList == emptyList<DiaryBase>()) {
+            if (totalList == emptyList<DiaryBaseAlpha>()) {
                 makeList(totalList)
             } else {
-                val resultList = mutableListOf<DiaryBase>()
+                val resultList = mutableListOf<DiaryBaseAlpha>()
                 for (each in totalList) {
-                    if ((each.myDrink?.drinkType?.contains(searchQuery) == true) || (each.myDrink?.drinkName?.contains(
+                    if ((each.drinkType?.contains(searchQuery) == true) || (each.drinkName?.contains(
                             searchQuery
-                        ) == true) || (each.myDrink?.POA?.contains(searchQuery) == true) ||
+                        ) == true) || (each.POA?.contains(searchQuery) == true) ||
                         (each.keywords?.contains(searchQuery) == true)
                     ) {
                         resultList.add(each)
@@ -130,4 +135,10 @@ class ListViewModel @Inject constructor(
             }
         }
     }
+
+    /** DiaryDetailDialog 에 표시할 MyDrinkRoom data 를 가져오는 코드 */
+    fun getMyKeywordData(): LiveData<KeywordRoomLive?> { // List<String> 을 String 으로 인식하므로, KeywordRoomLive 통째로 가져온다.
+        return databaseKeyword.getLiveKeywordsData().asLiveData()
+    }
+
 }

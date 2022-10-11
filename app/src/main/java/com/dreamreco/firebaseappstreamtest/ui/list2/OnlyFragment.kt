@@ -72,6 +72,7 @@ class OnlyFragment : Fragment(){
             onlyFragmentDiaryData.observe(viewLifecycleOwner) {
                 mAdapter.submitList(it)
             }
+
         }
 
         // 1. 툴바 관련 코드

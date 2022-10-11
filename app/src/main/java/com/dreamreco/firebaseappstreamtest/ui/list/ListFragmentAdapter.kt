@@ -20,6 +20,7 @@ import com.dreamreco.firebaseappstreamtest.databinding.CalendarEmptyHeaderBindin
 import com.dreamreco.firebaseappstreamtest.databinding.DateHeaderBinding
 import com.dreamreco.firebaseappstreamtest.databinding.ListFragmentChildBinding
 import com.dreamreco.firebaseappstreamtest.room.entity.DiaryBase
+import com.dreamreco.firebaseappstreamtest.room.entity.DiaryBaseAlpha
 import com.dreamreco.firebaseappstreamtest.setGlobalFont
 import java.io.FileNotFoundException
 
@@ -79,7 +80,7 @@ class ListFragmentAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         @RequiresApi(Build.VERSION_CODES.P)
-        fun bind(item: DiaryBase) {
+        fun bind(item: DiaryBaseAlpha) {
 
             setGlobalFont(binding.root, mTypeface)
 
@@ -125,11 +126,11 @@ class ListFragmentAdapter(
                     )
                 }
 
-                if (item.myDrink != null) {
-                    diaryDrinkType.text = item.myDrink!!.drinkType
-                    diaryDrinkName.text = " · ${item.myDrink!!.drinkName}"
-                    diaryVOD.text = " · ${item.myDrink!!.VOD}mL"
-                    diaryPOA.text = " · ${item.myDrink!!.POA}%"
+                if (item.drinkType != null) {
+                    diaryDrinkType.text = item.drinkType
+                    diaryDrinkName.text = " · ${item.drinkName}"
+                    diaryVOD.text = " · ${item.VOD}mL"
+                    diaryPOA.text = " · ${item.POA}%"
                 } else {
                     diaryDrinkType.text = ""
                     diaryDrinkName.text = ""
@@ -172,7 +173,8 @@ class ListFragmentAdapter(
 }
 
 // empty 헤더용 뷰홀더
-class ListFragmentEmptyHeaderViewHolder constructor(private val binding: CalendarEmptyHeaderBinding, typeface: Typeface
+class ListFragmentEmptyHeaderViewHolder constructor(
+    private val binding: CalendarEmptyHeaderBinding, typeface: Typeface
 ) :
     RecyclerView.ViewHolder(binding.root) {
 
@@ -202,7 +204,11 @@ class ListFragmentDateHeaderViewHolder constructor(
     private val mTypeface = typeface
 
     companion object {
-        fun from(parent: ViewGroup, context: Context, typeface: Typeface): ListFragmentDateHeaderViewHolder {
+        fun from(
+            parent: ViewGroup,
+            context: Context,
+            typeface: Typeface
+        ): ListFragmentDateHeaderViewHolder {
             val layoutInflater = LayoutInflater.from(parent.context)
             val binding = DateHeaderBinding.inflate(layoutInflater, parent, false)
             return ListFragmentDateHeaderViewHolder(binding, context, typeface)
@@ -211,14 +217,14 @@ class ListFragmentDateHeaderViewHolder constructor(
 
     fun bind(item: ListFragmentAdapterBase) {
 
-         setGlobalFont(binding.root, mTypeface)
+        setGlobalFont(binding.root, mTypeface)
 
         val diaryBase = (item as ListFragmentAdapterBase.DateHeader).diaryBase
         binding.apply {
             textDate.text = mContext.getString(
                 R.string.diary_month,
-                diaryBase.date.year,
-                diaryBase.date.month
+                diaryBase.year,
+                diaryBase.month
             )
         }
     }
@@ -246,7 +252,7 @@ sealed class ListFragmentAdapterBase {
 
     // Item
     data class Item(
-        val diaryBase: DiaryBase,
+        val diaryBase: DiaryBaseAlpha,
         override val layoutId: Int = VIEW_TYPE
     ) : ListFragmentAdapterBase() {
 
@@ -257,7 +263,7 @@ sealed class ListFragmentAdapterBase {
 
     // Date
     data class DateHeader(
-        val diaryBase: DiaryBase,
+        val diaryBase: DiaryBaseAlpha,
         override val layoutId: Int = VIEW_TYPE
     ) : ListFragmentAdapterBase() {
 

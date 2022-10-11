@@ -25,7 +25,7 @@ object DataBaseModule {
 
     @Singleton
     @Provides
-    fun provideDatabase (@ApplicationContext context: Context, gson: Gson): Database {
+    fun provideDatabase(@ApplicationContext context: Context, gson: Gson): Database {
         return Room
             .databaseBuilder(context, Database::class.java, DB_NAME)
             .addTypeConverter(MyDateTypeConverter(gson)) // 'MyDate' converter
@@ -40,30 +40,14 @@ object DataBaseModule {
 
     @Singleton
     @Provides
+    fun provideAlphaDao(database: Database) = database.diaryAlphaDao
+
+    @Singleton
+    @Provides
     fun provideOnlyBasicDao(database: Database) = database.onlyBasicDao
-//
-//    @Singleton
-//    @Provides
-//    fun provideCalendarDateDao(database: Database) = database.calendarDateDao
-//
-//    @Singleton
-//    @Provides
-//    fun provideLoadImageSignalDao(database: Database) = database.loadImageSignalDao
-//
-//    @Singleton
-//    @Provides
-//    fun provideMyDrinkRoomDao(database: Database) = database.myDrinkRoomDao
-//
-//    @Singleton
-//    @Provides
-//    fun provideQuestDao(database: Database) = database.questDao
-//
-//    @Singleton
-//    @Provides
-//    fun provideAllKeywordDao(database: Database) = database.keywordRoomDao
-//
-//    @Singleton
-//    @Provides
-//    fun provideLiveKeywordDao(database: Database) = database.keywordRoomLiveDao
+
+    @Singleton
+    @Provides
+    fun provideLiveKeywordDao(database: Database) = database.keywordRoomLiveDao
 
 }

@@ -20,15 +20,15 @@ class PopUpFragment : Fragment() {
     ): View? {
 
         with(binding) {
-            title.text = args.diaryBase.title
-            content.text = args.diaryBase.content
-            myDrink.text = args.diaryBase.myDrink.toString()
-            mydate.text = args.diaryBase.date.toString()
-            calendarDay.text = args.diaryBase.calendarDay.toString()
-            importance.text = args.diaryBase.importance.toString()
-            diaryBaseId.text = args.diaryBase.id.toString()
-            keywords.text = args.diaryBase.keywords.toString()
-            dateForSort.text = args.diaryBase.dateForSort.toString()
+            title.text = args.diaryBaseAlpha.title
+            content.text = args.diaryBaseAlpha.content
+            myDrink.text = "${args.diaryBaseAlpha.drinkType}·${args.diaryBaseAlpha.drinkName}·${args.diaryBaseAlpha.POA}mL·${args.diaryBaseAlpha.VOD}%"
+            mydate.text = "${args.diaryBaseAlpha.year}년${args.diaryBaseAlpha.month}월${args.diaryBaseAlpha.day}일"
+            calendarDay.text = args.diaryBaseAlpha.calendarDay.toString()
+            importance.text = args.diaryBaseAlpha.importance.toString()
+            diaryBaseId.text = args.diaryBaseAlpha.id.toString()
+            keywords.text = args.diaryBaseAlpha.keywords.toString()
+            dateForSort.text = args.diaryBaseAlpha.dateForSort.toString()
         }
 
         return binding.root
