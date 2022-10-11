@@ -16,8 +16,8 @@ android {
         applicationId "com.dreamreco.firebaseappstreamtest"
         minSdk 26
         targetSdk 32
-        versionCode 11 //TODO : 변경 적용하기
-        versionName "1.1.3"
+        versionCode 13 //TODO : 변경 적용하기
+        versionName "1.1.5"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
