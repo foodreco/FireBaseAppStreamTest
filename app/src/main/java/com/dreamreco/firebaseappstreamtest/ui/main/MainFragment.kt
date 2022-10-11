@@ -1,6 +1,7 @@
 package com.dreamreco.firebaseappstreamtest.ui.main
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import com.dreamreco.firebaseappstreamtest.databinding.FragmentMainBinding
 import com.dreamreco.firebaseappstreamtest.room.dao.DiaryBaseDao
 import com.dreamreco.firebaseappstreamtest.room.entity.DiaryBase
 import com.dreamreco.firebaseappstreamtest.toDateInt
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,7 +24,12 @@ class MainFragment : Fragment() {
 
     private val binding by lazy { FragmentMainBinding.inflate(layoutInflater) }
     private val mainViewModel by viewModels<MainViewModel>()
-    private val randomStringList = arrayListOf<String>("가", "나", "다", "라", "마", "바", "사", "아")
+    private lateinit var mFirebaseAnalytics : FirebaseAnalytics
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -82,6 +89,18 @@ class MainFragment : Fragment() {
         mainViewModel.insertDiaryBase()
         mainViewModel.insertOnlyBasic()
         mainViewModel.makeKeywordList()
+        sendFirebaseLog("MainFragment","listAdd","리스트추가")
+    }
+
+    /** FireBase 에 로그를 보내는 함수 (데이터 저장 또는 업데이트 시 발동) */
+    private fun sendFirebaseLog(itemID: String, itemName: String, contentType: String) {
+        val bundle = Bundle()
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, itemID)
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, itemName)
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, contentType)
+
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle)
+        Log.e("메인조각", "fireBase 로그 전송")
     }
 
 
