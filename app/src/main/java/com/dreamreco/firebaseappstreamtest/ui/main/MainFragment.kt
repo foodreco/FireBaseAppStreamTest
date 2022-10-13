@@ -7,14 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import com.dreamreco.firebaseappstreamtest.MyDate
-import com.dreamreco.firebaseappstreamtest.MyDrink
 import com.dreamreco.firebaseappstreamtest.databinding.FragmentMainBinding
-import com.dreamreco.firebaseappstreamtest.room.dao.DiaryBaseDao
-import com.dreamreco.firebaseappstreamtest.room.entity.DiaryBase
-import com.dreamreco.firebaseappstreamtest.toDateInt
-import com.prolificinteractive.materialcalendarview.CalendarDay
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

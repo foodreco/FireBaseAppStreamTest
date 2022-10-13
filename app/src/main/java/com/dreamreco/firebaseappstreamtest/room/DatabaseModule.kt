@@ -1,7 +1,9 @@
 package com.dreamreco.firebaseappstreamtest.room
 
 import android.content.Context
+import androidx.room.DeleteTable
 import androidx.room.Room
+import androidx.room.migration.AutoMigrationSpec
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -28,15 +30,16 @@ object DataBaseModule {
     fun provideDatabase(@ApplicationContext context: Context, gson: Gson): Database {
         return Room
             .databaseBuilder(context, Database::class.java, DB_NAME)
-            .addTypeConverter(MyDateTypeConverter(gson)) // 'MyDate' converter
-            .addTypeConverter(MyDrinkTypeConverter(gson)) // 'MyDrink' converter
+//            .addTypeConverter(MyDateTypeConverter(gson)) // 'MyDate' converter
+//            .addTypeConverter(MyDrinkTypeConverter(gson)) // 'MyDrink' converter
             .addTypeConverter(CalendarDayTypeConverter(gson)) // 'CalendarDay' converter
             .build()
     }
 
-    @Singleton
-    @Provides
-    fun provideDao(database: Database) = database.diaryDao
+//
+//    @Singleton
+//    @Provides
+//    fun provideDao(database: Database) = database.diaryDao
 
     @Singleton
     @Provides
@@ -49,5 +52,8 @@ object DataBaseModule {
     @Singleton
     @Provides
     fun provideLiveKeywordDao(database: Database) = database.keywordRoomLiveDao
+
+    @DeleteTable(tableName = "diary_base")
+    class MyAutoMigration : AutoMigrationSpec
 
 }

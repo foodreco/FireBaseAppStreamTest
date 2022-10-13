@@ -1,21 +1,13 @@
 package com.dreamreco.firebaseappstreamtest.ui.main
 
 import android.app.Application
-import android.graphics.Bitmap
-import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.room.ColumnInfo
-import androidx.room.PrimaryKey
-import com.dreamreco.firebaseappstreamtest.MyApplication
 import com.dreamreco.firebaseappstreamtest.MyDate
 import com.dreamreco.firebaseappstreamtest.MyDrink
 import com.dreamreco.firebaseappstreamtest.room.dao.DiaryBaseAlphaDao
-import com.dreamreco.firebaseappstreamtest.room.dao.DiaryBaseDao
 import com.dreamreco.firebaseappstreamtest.room.dao.KeywordRoomLiveDao
 import com.dreamreco.firebaseappstreamtest.room.dao.OnlyBasicDao
-import com.dreamreco.firebaseappstreamtest.room.entity.DiaryBase
 import com.dreamreco.firebaseappstreamtest.room.entity.DiaryBaseAlpha
 import com.dreamreco.firebaseappstreamtest.room.entity.KeywordRoomLive
 import com.dreamreco.firebaseappstreamtest.room.entity.OnlyBasic
@@ -28,7 +20,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val database: DiaryBaseDao,
+//    private val database: DiaryBaseDao,
     private val databaseAlpha: DiaryBaseAlphaDao,
     private val databaseOnlyBasic: OnlyBasicDao,
     private val databaseKeywordList: KeywordRoomLiveDao,

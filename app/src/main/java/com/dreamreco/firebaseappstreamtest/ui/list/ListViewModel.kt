@@ -4,10 +4,8 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.dreamreco.firebaseappstreamtest.MyMonth
 import com.dreamreco.firebaseappstreamtest.room.dao.DiaryBaseAlphaDao
-import com.dreamreco.firebaseappstreamtest.room.dao.DiaryBaseDao
 import com.dreamreco.firebaseappstreamtest.room.dao.KeywordRoomLiveDao
 import com.dreamreco.firebaseappstreamtest.room.dao.OnlyBasicDao
-import com.dreamreco.firebaseappstreamtest.room.entity.DiaryBase
 import com.dreamreco.firebaseappstreamtest.room.entity.DiaryBaseAlpha
 import com.dreamreco.firebaseappstreamtest.room.entity.KeywordRoomLive
 import com.dreamreco.firebaseappstreamtest.room.entity.OnlyBasic

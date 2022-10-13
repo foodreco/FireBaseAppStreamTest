@@ -19,7 +19,6 @@ import com.dreamreco.firebaseappstreamtest.THEME_2
 import com.dreamreco.firebaseappstreamtest.databinding.CalendarEmptyHeaderBinding
 import com.dreamreco.firebaseappstreamtest.databinding.DateHeaderBinding
 import com.dreamreco.firebaseappstreamtest.databinding.ListFragmentChildBinding
-import com.dreamreco.firebaseappstreamtest.room.entity.DiaryBase
 import com.dreamreco.firebaseappstreamtest.room.entity.DiaryBaseAlpha
 import com.dreamreco.firebaseappstreamtest.setGlobalFont
 import java.io.FileNotFoundException
