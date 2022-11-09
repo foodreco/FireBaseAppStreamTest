@@ -15,7 +15,7 @@ android {
         applicationId "com.dreamreco.firebaseappstreamtest"
         minSdk 26
         targetSdk 32
-        versionCode 7 //TODO : 변경 적용하기
+        versionCode 24 //TODO : 변경 적용하기
         versionName "1.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -47,6 +47,7 @@ android {
     dataBinding {
         enabled true
     }
+    namespace 'com.dreamreco.firebaseappstreamtest'
 }
 
 dependencies {
