@@ -33,3 +33,8 @@
 
 # 검색 서치뷰 사용 시 에러 해결용
 -keep class androidx.appcompat.widget.SearchView { *; }
+
+
+# FireBase
+-keepattributes Signature
+-keepclassmembers class com.dreamreco.models.** { *; }

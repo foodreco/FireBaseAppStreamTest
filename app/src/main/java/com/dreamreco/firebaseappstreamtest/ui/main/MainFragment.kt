@@ -54,6 +54,9 @@ class MainFragment : Fragment() {
             btnToAddList.setOnClickListener {
                 listAdd()
             }
+            btnToDatabaseTest.setOnClickListener {
+                it.findNavController().navigate(MainFragmentDirections.actionMainFragmentToDataBaseFragment())
+            }
         }
 
         return binding.root

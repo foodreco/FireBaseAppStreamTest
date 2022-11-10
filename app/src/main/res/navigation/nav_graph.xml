@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_mainFragment_to_onlyFragment"
             app:destination="@id/onlyFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_dataBaseFragment"
+            app:destination="@id/dataBaseFragment" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"
@@ -53,4 +56,9 @@
             android:name="onlyBasic"
             app:argType="com.dreamreco.firebaseappstreamtest.room.entity.OnlyBasic" />
     </fragment>
+    <fragment
+        android:id="@+id/dataBaseFragment"
+        android:name="com.dreamreco.firebaseappstreamtest.ui.main.DataBaseFragment"
+        android:label="fragment_data_base"
+        tools:layout="@layout/fragment_data_base" />
 </navigation>
