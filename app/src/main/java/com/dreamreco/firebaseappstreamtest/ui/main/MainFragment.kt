@@ -8,15 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import com.dreamreco.firebaseappstreamtest.MyDate
-import com.dreamreco.firebaseappstreamtest.MyDrink
 import com.dreamreco.firebaseappstreamtest.databinding.FragmentMainBinding
-import com.dreamreco.firebaseappstreamtest.room.dao.DiaryBaseDao
-import com.dreamreco.firebaseappstreamtest.room.entity.DiaryBase
-import com.dreamreco.firebaseappstreamtest.toDateInt
 import com.google.firebase.analytics.FirebaseAnalytics
-import com.prolificinteractive.materialcalendarview.CalendarDay
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,7 +24,8 @@ class MainFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(requireContext())
+//        mFirebaseAnalytics = FirebaseAnalytics.getInstance(requireContext())
+        mFirebaseAnalytics = Firebase.analytics
     }
 
     override fun onCreateView(
@@ -61,15 +57,48 @@ class MainFragment : Fragment() {
 
         with(binding) {
             btnToList.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "btnToList")
+                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "btnToList")
+                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "리스트로이동")
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle)
                 it.findNavController()
                     .navigate(MainFragmentDirections.actionMainFragmentToListFragment())
             }
             btnToOnly.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "btnToOnly")
+                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "btnToOnly")
+                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "온니로이동")
+                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle)
                 it.findNavController()
                     .navigate(MainFragmentDirections.actionMainFragmentToOnlyFragment())
             }
             btnToAddList.setOnClickListener {
                 listAdd()
+            }
+
+
+            btnCustom1.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putString("이름", "버튼")
+                bundle.putString("장소", "메인조각")
+                bundle.putString("이벤트", "btnCustom1")
+                mFirebaseAnalytics.logEvent("myCustomEvent", bundle)
+            }
+            btnCustom2.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putString("이름", "버튼")
+                bundle.putString("장소", "메인조각")
+                bundle.putString("이벤트", "btnCustom2")
+                mFirebaseAnalytics.logEvent("myCustomEvent", bundle)
+            }
+            btnCustom3.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putString("이름", "버튼")
+                bundle.putString("장소", "메인조각")
+                bundle.putString("이벤트", "btnCustom3")
+                mFirebaseAnalytics.logEvent("myCustomEvent", bundle)
             }
         }
 
@@ -89,10 +118,18 @@ class MainFragment : Fragment() {
         bundle.putString(FirebaseAnalytics.Param.ITEM_ID, itemID)
         bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, itemName)
         bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, contentType)
-
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle)
+
+//        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_ITEM, bundle)
+
         Log.e("메인조각", "fireBase 로그 전송")
     }
 
-
+    override fun onResume() {
+        super.onResume()
+        val screenViewBundle = Bundle()
+        screenViewBundle.putString(FirebaseAnalytics.Param.SCREEN_NAME, "메인화면")
+        screenViewBundle.putString(FirebaseAnalytics.Param.SCREEN_CLASS, "MainFragment")
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW, screenViewBundle)
+    }
 }

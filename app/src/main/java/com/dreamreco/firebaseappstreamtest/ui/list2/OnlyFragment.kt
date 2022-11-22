@@ -14,6 +14,9 @@ import com.dreamreco.firebaseappstreamtest.*
 import com.dreamreco.firebaseappstreamtest.databinding.FragmentListBinding
 import com.dreamreco.firebaseappstreamtest.databinding.FragmentOnlyBinding
 import com.dreamreco.firebaseappstreamtest.ui.list.ListViewModel
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -24,6 +27,9 @@ class OnlyFragment : Fragment(){
     private val binding by lazy { FragmentOnlyBinding.inflate(layoutInflater) }
     private var typeface: Typeface? = null
     lateinit var mAdapter: OnlyFragmentAdapter
+
+    private lateinit var mFirebaseAnalytics : FirebaseAnalytics
+
 
     // 정렬 관련 변수
     private val sortNumber = MutableLiveData(SORT_NORMAL) // 기본 세팅
@@ -37,6 +43,9 @@ class OnlyFragment : Fragment(){
         typeface = getFontType(requireContext())
         typeface?.let { setRecyclerView(it) }
         typeface?.let { setGlobalFont(binding.root, it) }
+
+        mFirebaseAnalytics = Firebase.analytics
+
     }
 
     override fun onCreateView(
@@ -153,5 +162,12 @@ class OnlyFragment : Fragment(){
         if (searchText != "") {
             searchDatabase(searchText)
         }
+
+        val screenViewBundle = Bundle()
+        screenViewBundle.putString(FirebaseAnalytics.Param.SCREEN_NAME, "온니화면")
+        screenViewBundle.putString(FirebaseAnalytics.Param.SCREEN_CLASS, "OnlyFragment")
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW, screenViewBundle)
     }
+
+
 }

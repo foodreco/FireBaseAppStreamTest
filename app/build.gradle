@@ -16,8 +16,8 @@ android {
         applicationId "com.dreamreco.firebaseappstreamtest"
         minSdk 26
         targetSdk 32
-        versionCode 21 //TODO : 변경 적용하기
-        versionName "1.0.1"
+        versionCode 42 //TODO : 변경 적용하기
+        versionName "1.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -54,21 +54,21 @@ dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation 'com.google.firebase:firebase-analytics-ktx:21.2.0'
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
     // 뷰모델 초기화
-    implementation 'androidx.fragment:fragment-ktx:1.5.2'
+    implementation 'androidx.fragment:fragment-ktx:1.5.4'
 
     // Kotlin
-    implementation "androidx.navigation:navigation-fragment-ktx:2.5.1"
-    implementation "androidx.navigation:navigation-ui-ktx:2.5.1"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.5.3"
+    implementation "androidx.navigation:navigation-ui-ktx:2.5.3"
 
     // Hilt dependencies
     def hilt_version = '2.40.5'
@@ -76,7 +76,7 @@ dependencies {
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
 
     //Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 
     //room
     def roomVersion = "2.4.3"

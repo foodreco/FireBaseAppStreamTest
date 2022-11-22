@@ -33,3 +33,9 @@
 
 # 검색 서치뷰 사용 시 에러 해결용
 -keep class androidx.appcompat.widget.SearchView { *; }
+
+
+# fireBaase SDK Room Null error 해결용
+-keepclassmembers class com.dreamreco.firebaseappstreamtest.** { <fields>; }
+#-keepclassmembers class com.dreamreco.** { <fields>; }
+
