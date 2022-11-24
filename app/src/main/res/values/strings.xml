@@ -244,5 +244,7 @@
     <string name="v1_q13_sub">사진 업로드 30개</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="notification_channelId">채널 아이디</string>
+    <string name="fcm_message">FCM 메세지</string>
 
 </resources>
