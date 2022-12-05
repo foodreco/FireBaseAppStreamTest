@@ -213,6 +213,8 @@
     <string name="setting_quest_title">달성 목표</string>
     <string name="completed_quest_empty">아직 달성한 목표가 없습니다.</string>
     <string name="new_quest_completed">새로운 목표를 달성했습니다.</string>
+    <string name="value_any_category">모든 종류</string>
+    <string name="value_any_city">생산지</string>
 
 
     <!--퀘스트 관련 키워드-->
@@ -246,5 +248,104 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="notification_channelId">채널 아이디</string>
     <string name="fcm_message">FCM 메세지</string>
+    <string name="sort_by_rating">별점순</string>
+    <string name="sort_by_price">가격순</string>
+    <string name="sort_by_popularity">인기순</string>
+    <string name="price_1">$</string>
+    <string name="price_2">$$</string>
+    <string name="price_3">$$$</string>
+    <string name="value_any_price">모든 가격</string>
+    <string name="all_restaurants">모든 와인</string>
+    <string name="sorted_by_price">가격순 정렬</string>
+    <string name="sorted_by_popularity">인기순 정렬</string>
+    <string name="sorted_by_rating">별점순 정렬</string>
+
+
+    <!-- Types of food I could think of in 5 minutes -->
+    <string-array name="categories">
+        <item>@string/value_any_category</item>
+
+        <item>Brunch</item>
+        <item>Burgers</item>
+        <item>Coffee</item>
+        <item>Deli</item>
+        <item>Dim Sum</item>
+        <item>Indian</item>
+        <item>Italian</item>
+        <item>Mediterranean</item>
+        <item>Mexican</item>
+        <item>Pizza</item>
+        <item>Ramen</item>
+        <item>Sushi</item>
+    </string-array>
+
+    <!-- 50 most populous cities in the US -->
+    <string-array name="cities">
+        <item>@string/value_any_city</item>
+
+        <item>Albuquerque</item>
+        <item>Arlington</item>
+        <item>Atlanta</item>
+        <item>Austin</item>
+        <item>Baltimore</item>
+        <item>Boston</item>
+        <item>Charlotte</item>
+        <item>Chicago</item>
+        <item>Cleveland</item>
+        <item>Colorado Springs</item>
+        <item>Columbus</item>
+        <item>Dallas</item>
+        <item>Denver</item>
+        <item>Detroit</item>
+        <item>El Paso</item>
+        <item>Fort Worth</item>
+        <item>Fresno</item>
+        <item>Houston</item>
+        <item>Indianapolis</item>
+        <item>Jacksonville</item>
+        <item>Kansas City</item>
+        <item>Las Vegas</item>
+        <item>Long Beach</item>
+        <item>Los Angeles</item>
+        <item>Louisville</item>
+        <item>Memphis</item>
+        <item>Mesa</item>
+        <item>Miami</item>
+        <item>Milwaukee</item>
+        <item>Nashville</item>
+        <item>New York</item>
+        <item>Oakland</item>
+        <item>Oklahoma</item>
+        <item>Omaha</item>
+        <item>Philadelphia</item>
+        <item>Phoenix</item>
+        <item>Portland</item>
+        <item>Raleigh</item>
+        <item>Sacramento</item>
+        <item>San Antonio</item>
+        <item>San Diego</item>
+        <item>San Francisco</item>
+        <item>San Jose</item>
+        <item>Tucson</item>
+        <item>Tulsa</item>
+        <item>Virginia Beach</item>
+        <item>Washington</item>
+    </string-array>
+
+    <!-- Price filters -->
+    <string-array name="prices">
+        <item>@string/value_any_price</item>
+
+        <item>@string/price_1</item>
+        <item>@string/price_2</item>
+        <item>@string/price_3</item>
+    </string-array>
+
+    <!-- Ways you can sort restaurants -->
+    <string-array name="sort_by">
+        <item>@string/sort_by_rating</item>
+        <item>@string/sort_by_popularity</item>
+        <item>@string/sort_by_price</item>
+    </string-array>
 
 </resources>

@@ -81,6 +81,27 @@
             app:layout_constraintStart_toStartOf="@+id/btn_custom_1"
             app:layout_constraintTop_toBottomOf="@+id/btn_custom_1" />
 
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider_1"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_to_list" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="FCM 관련"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_1" />
+
         <Button
             android:id="@+id/btn_get_token"
             android:layout_width="wrap_content"
@@ -89,7 +110,7 @@
             android:text="토큰 불러오기?"
             app:layout_constraintEnd_toEndOf="@+id/btn_to_list"
             app:layout_constraintStart_toStartOf="@+id/btn_to_list"
-            app:layout_constraintTop_toBottomOf="@+id/btn_to_list" />
+            app:layout_constraintTop_toBottomOf="@+id/divider_1" />
 
         <EditText
             android:id="@+id/text_token"
@@ -102,6 +123,47 @@
             app:layout_constraintEnd_toEndOf="@+id/btn_get_token"
             app:layout_constraintStart_toStartOf="@+id/btn_get_token"
             app:layout_constraintTop_toBottomOf="@+id/btn_get_token" />
+
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider_2"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_token" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="FireStore 관련"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_2" />
+
+        <Button
+            android:id="@+id/btn_to_fireStore_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="FireStore 목록"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_2" />
+
+        <Button
+            android:layout_marginTop="16dp"
+            android:text="서치박스 실행"
+            android:id="@+id/btn_to_search_dialog"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_to_fireStore_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

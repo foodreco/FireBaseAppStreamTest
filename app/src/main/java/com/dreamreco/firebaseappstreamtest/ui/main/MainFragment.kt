@@ -2,20 +2,25 @@ package com.dreamreco.firebaseappstreamtest.ui.main
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import com.dreamreco.firebaseappstreamtest.databinding.FragmentMainBinding
+import com.dreamreco.firebaseappstreamtest.ui.firestorelist.DrinkSearchDialog
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreSettings
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
@@ -24,11 +29,11 @@ class MainFragment : Fragment() {
         private const val TAG = "MainFragment"
     }
 
-
     private val binding by lazy { FragmentMainBinding.inflate(layoutInflater) }
     private val mainViewModel by viewModels<MainViewModel>()
     private val randomStringList = arrayListOf<String>("가", "나", "다", "라", "마", "바", "사", "아")
     private lateinit var mFirebaseAnalytics : FirebaseAnalytics
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -103,6 +108,15 @@ class MainFragment : Fragment() {
                     Toast.makeText(requireContext(), token , Toast.LENGTH_SHORT).show()
                     binding.textToken.setText(token)
                 })
+            }
+
+            btnToFireStoreList.setOnClickListener {
+                it.findNavController().navigate(MainFragmentDirections.actionMainFragmentToFireStoreListFragment())
+            }
+
+            btnToSearchDialog.setOnClickListener {
+                val dialog = DrinkSearchDialog()
+                dialog.show(childFragmentManager,"DrinkSearchDialog")
             }
         }
 

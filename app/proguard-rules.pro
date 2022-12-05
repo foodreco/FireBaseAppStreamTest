@@ -39,3 +39,10 @@
 -keepclassmembers class com.dreamreco.firebaseappstreamtest.** { <fields>; }
 #-keepclassmembers class com.dreamreco.** { <fields>; }
 
+## FireStore 연결 dataclass 에러 : java.lang.RuntimeException: No properties to serialize found on class 해결용
+#-keepclassmembers class com.dreamreco.firebaseappstreamtest.ui.firestorelist.Wine.** { *; }
+#-keepclassmembers class com.dreamreco.firebaseappstreamtest.ui.firestorelist.NewWine.** { *; }
+#
+#-keep class com.dreamreco.firebaseappstreamtest.ui.firestorelist.Wine.** { *; }
+#-keep class com.dreamreco.firebaseappstreamtest.ui.firestorelist.NewWine.** { *; }
+

@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_mainFragment_to_onlyFragment"
             app:destination="@id/onlyFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_fireStoreListFragment"
+            app:destination="@id/fireStoreListFragment" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"
@@ -53,4 +56,9 @@
             android:name="onlyBasic"
             app:argType="com.dreamreco.firebaseappstreamtest.room.entity.OnlyBasic" />
     </fragment>
+    <fragment
+        android:id="@+id/fireStoreListFragment"
+        android:name="com.dreamreco.firebaseappstreamtest.ui.firestorelist.FireStoreListFragment"
+        android:label="fragment_fire_store_list"
+        tools:layout="@layout/fragment_fire_store_list" />
 </navigation>
