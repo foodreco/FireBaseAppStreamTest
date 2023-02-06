@@ -1,4 +1,4 @@
-package com.dreamreco.firebaseappstreamtest
+package com.dreamreco.firebaseappstreamtest.ui.firestorefts
 
 import android.content.Context
 import androidx.startup.Initializer

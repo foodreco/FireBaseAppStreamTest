@@ -15,17 +15,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.dreamreco.firebaseappstreamtest.R
-import com.dreamreco.firebaseappstreamtest.THEME_2
 import com.dreamreco.firebaseappstreamtest.databinding.CalendarEmptyHeaderBinding
 import com.dreamreco.firebaseappstreamtest.databinding.DateHeaderBinding
 import com.dreamreco.firebaseappstreamtest.databinding.ListFragmentChildBinding
 import com.dreamreco.firebaseappstreamtest.room.entity.DiaryBase
 import com.dreamreco.firebaseappstreamtest.room.entity.OnlyBasic
-import com.dreamreco.firebaseappstreamtest.setGlobalFont
 import com.dreamreco.firebaseappstreamtest.ui.list.ListFragmentAdapterBase
 import com.dreamreco.firebaseappstreamtest.ui.list.ListFragmentDateHeaderViewHolder
 import com.dreamreco.firebaseappstreamtest.ui.list.ListFragmentDiffCallback
 import com.dreamreco.firebaseappstreamtest.ui.list.ListFragmentEmptyHeaderViewHolder
+import com.dreamreco.firebaseappstreamtest.util.setGlobalFont
 import java.io.FileNotFoundException
 
 class OnlyFragmentAdapter(

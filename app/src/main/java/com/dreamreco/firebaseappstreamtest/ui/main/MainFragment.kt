@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import com.dreamreco.firebaseappstreamtest.MyApplication
 import com.dreamreco.firebaseappstreamtest.databinding.FragmentMainBinding
 import com.dreamreco.firebaseappstreamtest.ui.firestorelist.DrinkSearchDialog
 import com.google.android.gms.tasks.OnCompleteListener
@@ -31,7 +32,6 @@ class MainFragment : Fragment() {
 
     private val binding by lazy { FragmentMainBinding.inflate(layoutInflater) }
     private val mainViewModel by viewModels<MainViewModel>()
-    private val randomStringList = arrayListOf<String>("가", "나", "다", "라", "마", "바", "사", "아")
     private lateinit var mFirebaseAnalytics : FirebaseAnalytics
 
 
@@ -67,6 +67,17 @@ class MainFragment : Fragment() {
             }
             btnToAddList.setOnClickListener {
                 listAdd()
+            }
+
+            // 길게 터치 시 테스트
+            btnToAddList.setOnLongClickListener {
+                testCachesOrData()
+
+                return@setOnLongClickListener true
+            }
+
+            btnDelete.setOnClickListener {
+                mainViewModel.deleteDataAll()
             }
 
 
@@ -118,13 +129,25 @@ class MainFragment : Fragment() {
                 val dialog = DrinkSearchDialog()
                 dialog.show(childFragmentManager,"DrinkSearchDialog")
             }
+
+            btnToFTSTest.setOnClickListener {
+                it.findNavController().navigate(MainFragmentDirections.actionMainFragmentToFTSFragment())
+            }
         }
 
         return binding.root
     }
 
+    private fun testCachesOrData() {
+        val result = MyApplication.prefs.getString("testCachesOrData","초기화됨")
+        Toast.makeText(requireContext(),result,Toast.LENGTH_SHORT).show()
+    }
+
     // 리스트 신규 추가 코드
     private fun listAdd() {
+
+        MyApplication.prefs.setString("testCachesOrData","세팅됨")
+
         mainViewModel.insertDiaryBase()
         mainViewModel.insertOnlyBasic()
         sendFirebaseLog("MainFragment","listAdd","리스트추가")

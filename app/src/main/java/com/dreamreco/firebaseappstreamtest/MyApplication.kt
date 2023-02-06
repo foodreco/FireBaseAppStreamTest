@@ -1,6 +1,7 @@
 package com.dreamreco.firebaseappstreamtest
 
 import android.app.Application
+import com.dreamreco.firebaseappstreamtest.util.PreferenceUtil
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp

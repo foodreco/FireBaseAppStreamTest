@@ -1,11 +1,10 @@
 package com.dreamreco.firebaseappstreamtest.room.dao
 
-import android.graphics.Bitmap
 import androidx.room.*
 import android.net.Uri
-import com.dreamreco.firebaseappstreamtest.MyDate
-import com.dreamreco.firebaseappstreamtest.MyDrink
 import com.dreamreco.firebaseappstreamtest.room.entity.DiaryBase
+import com.dreamreco.firebaseappstreamtest.util.MyDate
+import com.dreamreco.firebaseappstreamtest.util.MyDrink
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import kotlinx.coroutines.flow.Flow
 

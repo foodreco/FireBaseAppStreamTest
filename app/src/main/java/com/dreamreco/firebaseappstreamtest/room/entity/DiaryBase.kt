@@ -6,8 +6,8 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.dreamreco.firebaseappstreamtest.MyDate
-import com.dreamreco.firebaseappstreamtest.MyDrink
+import com.dreamreco.firebaseappstreamtest.util.MyDate
+import com.dreamreco.firebaseappstreamtest.util.MyDrink
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import kotlinx.parcelize.Parcelize
 

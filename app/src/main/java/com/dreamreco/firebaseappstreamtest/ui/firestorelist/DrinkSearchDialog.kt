@@ -18,17 +18,19 @@ import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
-import java.util.ArrayList
-//TODO : FireStore 에서 반영할 Collection 을 정하면 그에 따라, 목록이 query 되는 상태 (매번 업데이트 필요없는 시스템)
+
+
+//TODO : FireStore FTS 구현하기
 class DrinkSearchDialog : DialogFragment(), WineAdapter.OnRestaurantSelectedListener,
     EventListener<QuerySnapshot> {
 
     private val binding by lazy { DialogDrinkSearchBinding.inflate(layoutInflater) }
     private var mAdapter: WineAdapter? = null
     private var query: Query? = null
-    private lateinit var firestore: FirebaseFirestore
+    private lateinit var fireStore: FirebaseFirestore
     private var drinkSearchListener: DrinkSearchListener? = null
     private var searchText: String = ""
+
 
     private var deviceWidth : Int = 30
     private var deviceHeight : Int = 30
@@ -72,11 +74,11 @@ class DrinkSearchDialog : DialogFragment(), WineAdapter.OnRestaurantSelectedList
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        firestore = Firebase.firestore
+        fireStore = Firebase.firestore
         binding.searchView.setOnQueryTextListener(searchViewTextListener)
 
         // 쿼리 검색용 단어를 불러오는 코드
-        firestore.collection("collectionname").addSnapshotListener(this)
+        fireStore.collection("collectionname").addSnapshotListener(this)
 
 
         // 꼭 DialogFragment 클래스에서 선언하지 않아도 된다.
@@ -114,9 +116,9 @@ class DrinkSearchDialog : DialogFragment(), WineAdapter.OnRestaurantSelectedList
 
                 override fun onDataChanged() {
                     if (itemCount == 0) {
-                        Toast.makeText(requireContext(), "리스트가 없습니다.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "리스트가 없습니다.", Toast.LENGTH_SHORT).show()
                     } else {
-                        Toast.makeText(requireContext(), "리스트 불러옴", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "리스트 불러옴", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -124,13 +126,15 @@ class DrinkSearchDialog : DialogFragment(), WineAdapter.OnRestaurantSelectedList
 
         binding.drinkSearchListRecyclerView.adapter = mAdapter
 
+
         return binding.root
     }
+
 
     fun setNewQuery(text: String) {
         if (mCollectionName != null) {
 
-            var filterQuery: Query = firestore.collection(mCollectionName!!)
+            var filterQuery: Query = fireStore.collection(mCollectionName!!)
 
             //TODO : 쿼리 필터링 하기
             filterQuery = filterQuery.whereGreaterThanOrEqualTo(CustomDrink.FIELD_NAME, text)
@@ -141,7 +145,7 @@ class DrinkSearchDialog : DialogFragment(), WineAdapter.OnRestaurantSelectedList
 
             binding.resultText.text = text
         } else {
-            Toast.makeText(requireContext(),"불러올 데이터가 없습니다.",Toast.LENGTH_SHORT).show()
+            Toast.makeText(context,"불러올 데이터가 없습니다.",Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -251,7 +255,7 @@ class DrinkSearchDialog : DialogFragment(), WineAdapter.OnRestaurantSelectedList
         Log.e("DrinkSearchDialog", "testName : $testName")
 
         // DB Collection Name 변경 시, 불러오기 재 설정 코드
-        val filterQuery: Query = firestore.collection(mCollectionName!!)
+        val filterQuery: Query = fireStore.collection(mCollectionName!!)
         mAdapter?.setQuery(filterQuery)
     }
 

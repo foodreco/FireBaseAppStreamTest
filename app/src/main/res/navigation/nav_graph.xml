@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_mainFragment_to_fireStoreListFragment"
             app:destination="@id/fireStoreListFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_FTSFragment"
+            app:destination="@id/FTSFragment" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"
@@ -61,4 +64,10 @@
         android:name="com.dreamreco.firebaseappstreamtest.ui.firestorelist.FireStoreListFragment"
         android:label="fragment_fire_store_list"
         tools:layout="@layout/fragment_fire_store_list" />
+    <fragment
+        android:id="@+id/FTSFragment"
+        android:name="com.dreamreco.firebaseappstreamtest.ui.firestorefts.FTSFragment"
+        android:label="FTSFragment"
+        tools:layout="@layout/fragment_f_t"
+        />
 </navigation>

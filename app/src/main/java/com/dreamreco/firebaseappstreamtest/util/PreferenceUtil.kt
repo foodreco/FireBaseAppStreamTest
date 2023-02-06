@@ -1,4 +1,4 @@
-package com.dreamreco.firebaseappstreamtest
+package com.dreamreco.firebaseappstreamtest.util
 
 import android.content.Context
 import android.content.SharedPreferences

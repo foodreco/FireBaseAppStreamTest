@@ -4,7 +4,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.dreamreco.firebaseappstreamtest.FireStoreAdapter
+import com.dreamreco.firebaseappstreamtest.ui.firestorefts.FireStoreAdapter
 import com.dreamreco.firebaseappstreamtest.databinding.ListFragmentChildBinding
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.Query

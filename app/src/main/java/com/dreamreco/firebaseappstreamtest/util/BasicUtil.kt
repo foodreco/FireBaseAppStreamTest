@@ -1,4 +1,4 @@
-package com.dreamreco.firebaseappstreamtest
+package com.dreamreco.firebaseappstreamtest.util
 
 import android.Manifest
 import android.animation.ValueAnimator
@@ -27,6 +27,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.navigation.NavController
+import com.dreamreco.firebaseappstreamtest.MyApplication
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.prolificinteractive.materialcalendarview.CalendarDay
@@ -34,7 +35,6 @@ import kotlinx.parcelize.Parcelize
 import java.io.InputStream
 import java.text.SimpleDateFormat
 import java.util.concurrent.TimeUnit
-
 
 @Parcelize
 data class MyDate(

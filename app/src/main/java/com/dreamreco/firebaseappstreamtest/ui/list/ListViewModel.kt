@@ -2,13 +2,13 @@ package com.dreamreco.firebaseappstreamtest.ui.list
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.dreamreco.firebaseappstreamtest.MyMonth
 import com.dreamreco.firebaseappstreamtest.room.dao.DiaryBaseDao
 import com.dreamreco.firebaseappstreamtest.room.dao.OnlyBasicDao
 import com.dreamreco.firebaseappstreamtest.room.entity.DiaryBase
 import com.dreamreco.firebaseappstreamtest.room.entity.OnlyBasic
-import com.dreamreco.firebaseappstreamtest.toMyMonth
 import com.dreamreco.firebaseappstreamtest.ui.list2.OnlyFragmentAdapterBase
+import com.dreamreco.firebaseappstreamtest.util.MyMonth
+import com.dreamreco.firebaseappstreamtest.util.toMyMonth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

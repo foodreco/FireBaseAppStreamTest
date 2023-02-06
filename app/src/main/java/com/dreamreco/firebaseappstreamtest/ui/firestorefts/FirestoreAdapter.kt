@@ -1,11 +1,9 @@
-package com.dreamreco.firebaseappstreamtest
+package com.dreamreco.firebaseappstreamtest.ui.firestorefts
 
 import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
-import android.view.ViewGroup
 import com.google.firebase.firestore.*
 import java.util.ArrayList
-import java.util.EventListener
 
 /**
  * RecyclerView adapter for displaying the results of a Firestore [Query].

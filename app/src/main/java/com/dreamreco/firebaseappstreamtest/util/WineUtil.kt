@@ -1,8 +1,7 @@
-package com.dreamreco.firebaseappstreamtest
+package com.dreamreco.firebaseappstreamtest.util
 
 import android.content.Context
-import android.os.Build
-import androidx.annotation.RequiresApi
+import com.dreamreco.firebaseappstreamtest.R
 import com.dreamreco.firebaseappstreamtest.ui.firestorelist.Wine
 import java.util.Arrays
 import java.util.Locale

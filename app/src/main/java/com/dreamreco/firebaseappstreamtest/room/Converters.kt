@@ -5,8 +5,8 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
-import com.dreamreco.firebaseappstreamtest.MyDate
-import com.dreamreco.firebaseappstreamtest.MyDrink
+import com.dreamreco.firebaseappstreamtest.util.MyDate
+import com.dreamreco.firebaseappstreamtest.util.MyDrink
 import com.google.gson.Gson
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import java.io.ByteArrayOutputStream

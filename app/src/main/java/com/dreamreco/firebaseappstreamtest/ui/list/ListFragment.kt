@@ -12,6 +12,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.dreamreco.firebaseappstreamtest.*
 import com.dreamreco.firebaseappstreamtest.databinding.FragmentListBinding
+import com.dreamreco.firebaseappstreamtest.util.*
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase

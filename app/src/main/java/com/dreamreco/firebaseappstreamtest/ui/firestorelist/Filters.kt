@@ -3,7 +3,7 @@ package com.dreamreco.firebaseappstreamtest.ui.firestorelist
 import android.content.Context
 import android.text.TextUtils
 import com.dreamreco.firebaseappstreamtest.R
-import com.dreamreco.firebaseappstreamtest.WineUtil
+import com.dreamreco.firebaseappstreamtest.util.WineUtil
 import com.google.firebase.firestore.Query
 
 /**

@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.text.HtmlCompat
 import androidx.fragment.app.viewModels
-import com.dreamreco.firebaseappstreamtest.WineUtil
+import com.dreamreco.firebaseappstreamtest.util.WineUtil
 import com.dreamreco.firebaseappstreamtest.databinding.FragmentFireStoreListBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.*
