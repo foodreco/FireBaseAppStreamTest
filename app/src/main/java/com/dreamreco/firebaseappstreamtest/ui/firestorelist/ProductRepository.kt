@@ -12,12 +12,13 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.firestore.ServerTimestamp
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
+import java.util.*
 
-//TODO : Repository 학습하기
 internal class ProductRepository {
     private val rootRef = Firebase.firestore
     private val productSearchRef = rootRef.collection(DATA).document(PRODUCT_SEARCH_PROPERTY)
@@ -99,9 +100,16 @@ data class DrinkInfo(
     var volume : Int = 0,
 )
 
-class Product {
-    var price = 0.0
-}
+@Keep
+data class Product (
+    var boardWriter: String = "",
+    var content: String = "",
+    var title: String = "",
+    var uid: String = "",
+    var replyCount : Int = 0,
+    @ServerTimestamp
+    var timestamp: Date? = null
+)
 
 internal interface Constants {
     companion object {

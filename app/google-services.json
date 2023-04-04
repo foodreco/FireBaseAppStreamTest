@@ -15,7 +15,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "832084630220-f89tqgqni22onur131g9ptecjql1jfu3.apps.googleusercontent.com",
+          "client_id": "832084630220-a5446vegeb9dqkg5dd8prcspr2mvg10q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dreamreco.firebaseappstreamtest",
+            "certificate_hash": "b02254ef5fc74f13d63c229306f5cde34e8d1aa8"
+          }
+        },
+        {
+          "client_id": "832084630220-8ntiqcgu0m7lakrs92gtnpfu28dk8cnm.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -28,7 +36,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "832084630220-f89tqgqni22onur131g9ptecjql1jfu3.apps.googleusercontent.com",
+              "client_id": "832084630220-8ntiqcgu0m7lakrs92gtnpfu28dk8cnm.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

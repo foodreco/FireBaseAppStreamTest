@@ -13,7 +13,7 @@ import java.util.ArrayList
  * many times as the user scrolls.
  */
 abstract class FireStoreAdapter<VH : RecyclerView.ViewHolder>(private var query: Query?) :
-    RecyclerView.Adapter<VH>(), com.google.firebase.firestore.EventListener<QuerySnapshot> {
+    RecyclerView.Adapter<VH>(), EventListener<QuerySnapshot> {
 
     private var registration: ListenerRegistration? = null
 
@@ -51,6 +51,7 @@ abstract class FireStoreAdapter<VH : RecyclerView.ViewHolder>(private var query:
     }
 
     private fun onDocumentAdded(change: DocumentChange) {
+        // 특정 위치에, 특정 요소를 넣는다.
         snapshots.add(change.newIndex, change.document)
         notifyItemInserted(change.newIndex)
     }
@@ -89,9 +90,6 @@ abstract class FireStoreAdapter<VH : RecyclerView.ViewHolder>(private var query:
     }
 
     fun setQuery(query: Query) {
-
-        Log.e("FireStoreAdapter","setQuery 발동 : $query")
-
         // Stop listening
         stopListening()
 
@@ -109,7 +107,7 @@ abstract class FireStoreAdapter<VH : RecyclerView.ViewHolder>(private var query:
     }
 
     open fun onDataChanged() {
-
+        Log.w(TAG, "onDataChanged")
     }
 
     override fun getItemCount(): Int {

@@ -46,3 +46,10 @@
 #-keep class com.dreamreco.firebaseappstreamtest.ui.firestorelist.Wine.** { *; }
 #-keep class com.dreamreco.firebaseappstreamtest.ui.firestorelist.NewWine.** { *; }
 
+
+# 카카오 API 적용
+-keep class com.kakao.sdk.**.model.* { <fields>; }
+-keep class * extends com.google.gson.TypeAdapter
+-dontwarn org.bouncycastle.jsse.**
+-dontwarn org.conscrypt.*
+-dontwarn org.openjsse.**

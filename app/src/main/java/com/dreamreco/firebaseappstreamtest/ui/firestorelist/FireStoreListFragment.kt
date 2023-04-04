@@ -18,10 +18,6 @@ import com.google.firebase.ktx.Firebase
 
 class FireStoreListFragment : Fragment(), WineAdapter.OnRestaurantSelectedListener, FilterDialogFragment.FilterListener {
 
-    //TODO : 리스너를 이용한 DialogFragment 필터 만들어보기
-    //TODO : 검색으로 관련 데이터 도출해보기
-    //TODO : FireStore ↔ Storage 연계하기 : 특정 FireStore 관련 이미지 Storage 에서 불러오기
-
     private val binding by lazy { FragmentFireStoreListBinding.inflate(layoutInflater) }
     private val viewModel by viewModels<FireStoreListViewModel>()
     private var mAdapter: WineAdapter? = null

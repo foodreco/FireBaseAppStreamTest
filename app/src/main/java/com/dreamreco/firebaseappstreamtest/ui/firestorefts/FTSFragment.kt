@@ -19,7 +19,6 @@ import com.dreamreco.firebaseappstreamtest.R
 import com.dreamreco.firebaseappstreamtest.databinding.FragmentFTBinding
 import com.dreamreco.firebaseappstreamtest.ui.firestorelist.*
 
-//TODO : FTS 구현 완료함
 class FTSFragment : Fragment() {
 
     private val viewModel by viewModels<FireStoreListViewModel>()
@@ -90,7 +89,9 @@ class FTSFragment : Fragment() {
         searchView = binding.searchView
         binding.searchView.setOnQueryTextListener(searchViewTextListener)
 
-        autoComplete = searchView.findViewById(androidx.appcompat.R.id.search_src_text)
+//        autoComplete = searchView.findViewById(androidx.appcompat.R.id.search_src_text)
+        //TODO : joodiary 에서는 되고 여기선 안된다 ?
+        autoComplete = searchView.findViewById(androidx.constraintlayout.widget.R.id.search_src_text)
 
         autoComplete?.setDropDownBackgroundResource(android.R.color.white)
         autoComplete?.setBackgroundColor(Color.RED)
@@ -144,7 +145,6 @@ class FTSFragment : Fragment() {
                 .load(url)
                 .into(binding.drinkInfoImageView)
         } else {
-            //TODO : 이미지 없음 Source 구해넣기
             binding.drinkInfoImageView.setImageDrawable(
                 ContextCompat.getDrawable(
                     requireContext(),

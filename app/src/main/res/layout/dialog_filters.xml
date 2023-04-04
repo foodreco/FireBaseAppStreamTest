@@ -34,7 +34,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:entries="@array/categories"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/icon_category"
         app:layout_constraintTop_toBottomOf="@+id/filterDialogTitle" />
@@ -57,7 +56,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:entries="@array/cities"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/icon_city"
         app:layout_constraintTop_toBottomOf="@+id/spinnerCategory" />
@@ -79,7 +77,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:entries="@array/prices"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/icon_price"
         app:layout_constraintTop_toBottomOf="@+id/spinnerCity" />
@@ -101,7 +98,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:entries="@array/sort_by"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/icon_sort"
         app:layout_constraintTop_toBottomOf="@+id/spinnerPrice" />

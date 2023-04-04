@@ -22,6 +22,17 @@
         <action
             android:id="@+id/action_mainFragment_to_FTSFragment"
             app:destination="@id/FTSFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_mainFragment_to_storageFragment"
+            app:destination="@id/storageFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_questionAndAnswerFragment"
+            app:destination="@id/questionAndAnswerFragment" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"
@@ -70,4 +81,55 @@
         android:label="FTSFragment"
         tools:layout="@layout/fragment_f_t"
         />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.dreamreco.firebaseappstreamtest.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_loginFragment2"
+            app:destination="@id/loginFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment2"
+        android:name="com.dreamreco.firebaseappstreamtest.ui.login.ui.login.LoginFragment2"
+        android:label="fragment_login2"
+        tools:layout="@layout/fragment_login2" >
+        <action
+            android:id="@+id/action_loginFragment2_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/storageFragment"
+        android:name="com.dreamreco.firebaseappstreamtest.ui.fireStorage.StorageFragment"
+        android:label="fragment_storage"
+        tools:layout="@layout/fragment_storage" />
+    <fragment
+        android:id="@+id/questionAndAnswerFragment"
+        android:name="com.dreamreco.firebaseappstreamtest.ui.qna.QuestionAndAnswerFragment"
+        android:label="fragment_question_and_answer"
+        tools:layout="@layout/fragment_question_and_answer" >
+        <action
+            android:id="@+id/action_questionAndAnswerFragment_to_questionAndAnswerWriteFragment"
+            app:destination="@id/questionAndAnswerWriteFragment" />
+        <action
+            android:id="@+id/action_questionAndAnswerFragment_to_questionAndAnswerEditFragment"
+            app:destination="@id/questionAndAnswerEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionAndAnswerWriteFragment"
+        android:name="com.dreamreco.firebaseappstreamtest.ui.qna.QuestionAndAnswerWriteFragment"
+        android:label="QuestionAndAnswerWriteFragment"
+        tools:layout="@layout/fragment_question_and_answer_write">
+    </fragment>
+    <fragment
+        android:id="@+id/questionAndAnswerEditFragment"
+        android:name="com.dreamreco.firebaseappstreamtest.ui.qna.QuestionAndAnswerEditFragment"
+        android:label="QuestionAndAnswerEditFragment">
+        <argument
+            android:name="boardContent"
+            app:argType="com.dreamreco.firebaseappstreamtest.repository.QuestionAndAnswerEditClass"/>
+    </fragment>
 </navigation>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -7,4 +7,124 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white_for_dark">#A4FFFFFF</color>
+    <color name="red">#FD0000</color>
+    <color name="wine">#882F2F</color>
+    <color name="blue">#3F51B5</color>
+    <color name="light_blue">#0090CD</color>
+    <color name="yellow">#FFE500</color>
+    <color name="gold">#FFC107</color>
+    <color name="gray">#8E8E8E</color>
+
+    <!--기본테마 색-->
+    <color name="splash_background">#f3e5f5</color>
+    <color name="joo_dark">#4b178b</color>
+    <color name="joo_main_color">#CD95D7</color>
+    <color name="icon_background_color">#E0BFE6</color>
+    <color name="spinner_text_color">#000000</color>
+    <color name="textView_text_color">#000000</color>
+    <!--레이아웃 색-->
+    <color name="menu_icon_tint_color">#000000</color>
+    <color name="important_color">#4b178b</color>
+    <color name="not_important_color">#000000</color>
+    <color name="roundCornerProgressBar_background_color">#DADADA</color>
+    <color name="drinkTimes_color">#5fb74a</color>
+    <color name="drinkTimes_color_for_dark">#D7E1FF</color>
+    <color name="PAOD_color">#8E24AA</color>
+    <color name="VOD_color">#3F51B5</color>
+    <color name="pieChart_center_text">#000000</color>
+    <color name="pieChart_no_data_text_color">#4b178b</color>
+
+    <!--캘린더 색-->
+    <color name="calendar_dot_normal">#FF000000</color>
+    <color name="calendar_dot_important">#FD0000</color>
+    <color name="calendar_today">#FF018786</color>
+    <!--캘린더 색 다크모드-->
+    <color name="sunday_for_dark">#F44336</color>
+    <color name="saturday_for_dark">#00BCD4</color>
+    <color name="calendar_dot_normal_dark">#FF000000</color>
+    <color name="calendar_dot_important_dark">#FD0000</color>
+
+
+
+
+
+    <!--테스트 색상들-->
+    <color name="hau_white_green">#F9FFF9</color>
+    <color name="hau_green">#00CD3E</color> 0,205,62
+    <color name="hau_green_translucence">#8FF1AD</color>
+    <color name="hau_text_color">#00a263</color>
+    <color name="hau_status_bar_color">#007040</color>0,112,64
+    <color name="hau_bright_green">#91e295</color>
+    <color name="hau_emerald">#00cda4</color>0,205,164
+    <color name="hau_blue">#3d00cd</color>
+    <color name="hau_bright_blue">#0090cd</color> 0,144,205
+    <color name="hau_dark_green">#4A6572</color> 74,101,114
+    <color name="hau_black">#232F34</color>35,47,52
+    <color name="ANALOGOUS_color_1">#005e98</color>0,94,152
+    <color name="ANALOGOUS_color_2">#0900c5</color>9,0,197
+    <color name="ANALOGOUS_color_3">#6118db</color>97,24,219
+    <color name="ANALOGOUS_color_4">#0090cd</color>0,144,205
+    <color name="ANALOGOUS_color_5">#007100</color>0,113,0
+    <color name="ANALOGOUS_color_6">#006436</color>0,100,54
+    <color name="ANALOGOUS_color_7">#00a800</color>0,168,0
+    <color name="ANALOGOUS_color_8">#009361</color>0,147,97
+    <color name="ANALOGOUS_color_9">#005e98</color>0,94,152
+    <!--테스트 색상 2-->
+    <color name="sound_white_yellow">#FFFFFFFF</color>
+    <color name="sound_yellow">#f1c40f</color>
+    <color name="sound_yellow_orange">#f1530f</color>
+    <color name="sound_yellow_green">#adf10f</color>
+    <color name="sound_bright_yellow">#faeaaf</color>
+    <color name="sound_status_bar_color">#FFFFFFFF</color>
+    <color name="sound_text_color">#341f00</color>
+
+    <!--기본 테마 색상-->
+    <color name="basic_primary">#8e24aa</color>
+    <color name="basic_primary_light">#c158dc</color>
+    <color name="basic_primary_very_light">#FBEBFF</color>
+    <color name="basic_primary_dark">#5c007a</color>
+    <color name="basic_primary_text_color">#000000</color>
+    <color name="basic_primary_background_color">#fff5f5</color>
+    <color name="basic_primary_touch_color">#c158dc</color>
+    <color name="basic_primary_actionbar_color">#8e24aa</color>
+    <color name="basic_primary_statusBar_color">#5c007a</color>
+
+    <!--테마1 색상-->
+    <color name="theme1_primary">#091a59</color>
+    <color name="theme1_primary_light">#404087</color>
+    <color name="theme1_primary_dark">#000030</color>
+    <color name="theme1_primary_text_color">#000000</color>
+    <color name="theme1_primary_background_color">#FFF7F9FF</color>
+    <color name="theme1_primary_touch_color">#404087</color>
+    <color name="theme1_primary_actionbar_color">#091a59</color>
+    <color name="theme1_primary_statusBar_color">#000030</color>
+
+    <!--테마2 색상-->
+    <color name="theme2_primary">#262626</color>
+    <color name="theme2_primary_light">#434343</color>
+    <color name="theme2_primary_dark">#000000</color>
+    <color name="theme2_primary_text_color">#FFFFFF</color>
+    <color name="theme2_primary_background_color">#434343</color>
+    <color name="theme2_primary_background_color_for_cardView">#555555</color>
+    <color name="theme2_primary_touch_color">#e1d7ff</color>
+    <color name="theme2_primary_actionbar_color">#434343</color>
+    <color name="theme2_primary_statusBar_color">#000000</color>
+
+    <color name="testColor">#DADADA</color>
+
+
+    <color name="blueStart">#4EFFF3</color>
+    <color name="blueEnd">#0ca6f9</color>
+    <color name="purpleStart">#a369ff</color>
+    <color name="purpleEnd">#0e56ff</color>
+    <color name="roseStart">#FF6A00</color>
+    <color name="roseEnd">#ef0276</color>
+    <color name="greenStart">#a7f56e</color>
+    <color name="greenEnd">#11c612</color>
+
+
+
+
+
 </resources>

@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.dreamreco.firebaseappstreamtest">
+    <!-- 인터넷 사용 권한 설정 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MyApplication"
@@ -15,6 +20,13 @@
         android:theme="@style/Theme.FireBaseAppStreamTest"
         tools:targetApi="31">
         <activity
+            android:name=".KakaoActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -22,18 +34,49 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <!-- 앱 링크 설정 -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="firebaseappstreamtest.page.link"
+                    android:scheme="http" />
+                <data
+                    android:host="firebaseappstreamtest.page.link"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity> <!-- 카카오 로그인 Redirect URI 설정 -->
+        <activity
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
+                <data
+                    android:host="oauth"
+                    android:scheme="kakao26d9280e4780179cfeab330c97c15c9c" />
+            </intent-filter>
         </activity>
+
         <meta-data
             android:name="google_analytics_automatic_screen_reporting_enabled"
             android:value="false" />
 
         <service
-            android:name="com.dreamreco.firebaseappstreamtest.service.MyFirebaseMessagingService"
+            android:name=".service.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/ic_sort" />
@@ -43,9 +86,13 @@
             android:authorities="${applicationId}.androidx-startup"
             android:exported="false"
             tools:node="merge">
-            <meta-data  android:name="com.dreamreco.firebaseappstreamtest.ui.firestorefts.FireStoreInitializer"
+            <meta-data
+                android:name="com.dreamreco.firebaseappstreamtest.ui.firestorefts.FireStoreInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="com.dreamreco.firebaseappstreamtest.ui.firestorefts.AuthInitializer"
                 android:value="androidx.startup" />
         </provider>
-
     </application>
+
 </manifest>

@@ -31,7 +31,7 @@ open class WineAdapter(query: Query?, private val listener: OnRestaurantSelected
         holder.bind(getSnapshot(position), listener)
     }
 
-    class ViewHolder(val binding: ListFragmentChildBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(val binding: ListFragmentChildBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
             snapshot: DocumentSnapshot,

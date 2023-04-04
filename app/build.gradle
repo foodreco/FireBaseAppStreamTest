@@ -52,6 +52,9 @@ android {
     dataBinding {
         enabled true
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -64,6 +67,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation 'androidx.work:work-runtime-ktx:2.7.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.annotation:annotation:1.3.0'
+    implementation 'androidx.paging:paging-common-ktx:3.1.1'
+    implementation 'androidx.paging:paging-runtime-ktx:3.1.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
@@ -74,9 +80,24 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging-ktx'
     implementation 'com.google.firebase:firebase-firestore-ktx'
     implementation 'com.google.firebase:firebase-storage-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+
+    // FirebaseUI (for authentication 로그인 화면 구성)
+    implementation 'com.firebaseui:firebase-ui-auth:8.0.2'
+
+    // 구글 연계 로그인
+    implementation 'com.google.android.gms:play-services-auth:20.4.1'
 
     // FirebaseUI 로 이미지 다운로드
     implementation 'com.firebaseui:firebase-ui-storage:7.2.0'
+
+    // 앱 동적링크
+    implementation 'com.google.firebase:firebase-dynamic-links-ktx'
+
+    //카카오
+    implementation "com.kakao.sdk:v2-all:2.13.0" // 전체 모듈 설치, 2.11.0 버전부터 지원
+//    implementation "com.kakao.sdk:v2-user:2.12.1" // 카카오 로그인
+//    implementation "com.kakao.sdk:v2-share:2.12.1" // 메시지(카카오톡 공유)
 
 
     // 뷰모델 초기화
@@ -111,4 +132,5 @@ dependencies {
 
     // Exifinterface (이미지 회전)
     implementation "androidx.exifinterface:exifinterface:1.3.3"
+
 }

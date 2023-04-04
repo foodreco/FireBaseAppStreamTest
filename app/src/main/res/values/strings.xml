@@ -1,6 +1,6 @@
-<resources>
-    <string name="app_name">FireBaseAppStreamTest</string>
-    <string name="app_name_for_save">주량일기</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">파이어베이스테스트</string>
+    <string name="app_name_for_save">파이어베이스테스트</string>
     <!-- In layout  -->
     <!-- In Code  -->
     <!--d : Int / s : String-->
@@ -81,11 +81,16 @@
     <string name="login_with_password_setting_cancel">비밀번호 설정이 취소되었습니다.</string>
     <string name="no_available_data">관련 기록이 없습니다.</string>
     <string name="explanation_for_tendency">1. 절주 : 술을 절제하는 사람\n2. 애주가 : 술을 사랑하는 사람\n3. 술고래 : 주량이 많은 사람\n4. 술꾼 : 프로의 경지에 이른 사람\n5. 열반 : 술로 도를 터득한 사람</string>
-    <string name="grade_1">절주 : 술을 절제하는 사람</string>
-    <string name="grade_2">애주가 : 술을 사랑하는 사람</string>
-    <string name="grade_3">술고래 : 주량이 많은 사람</string>
-    <string name="grade_4">술꾼 : 프로의 경지에 이른 사람</string>
-    <string name="grade_5">열반 : 술로 도를 터득한 사람</string>
+    <string name="grade_1">절주</string>
+    <string name="grade_2">애주가</string>
+    <string name="grade_3">술고래</string>
+    <string name="grade_4">술꾼</string>
+    <string name="grade_5">열반</string>
+    <string name="grade_1_sub">술을 절제하는 사람</string>
+    <string name="grade_2_sub">술을 사랑하는 사람</string>
+    <string name="grade_3_sub">주량이 많은 사람</string>
+    <string name="grade_4_sub">프로의 경지에 이른 사람</string>
+    <string name="grade_5_sub">술로 도를 터득한 사람</string>
     <string name="explanation_for_tendency_first">· 성향 5단계</string>
     <string name="choose_drinkType_first">주종을 먼저 선택해주세요.</string>
     <string name="explanation_for_VOD">· 소주 1병 : 360mL\n· 와인,막걸리 1병 : 750mL\n· 병맥주 : 330/500mL\n· 캔맥주 : 355/500mL\n· 페트맥주 : 1000/1600mL</string>
@@ -121,6 +126,7 @@
     <string name="record_started_date">기록 시작일</string>
     <string name="record_number_of_date">기록 일수</string>
     <string name="back_up_with_file">파일로 내보내기</string>
+    <string name="back_up_to_server">백업 및 복원</string>
     <string name="theme_change_text">테마 변경</string>
     <string name="font_basic">기본 글씨체</string>
     <string name="background_basic">기본 배경</string>
@@ -181,6 +187,7 @@
     <string name="alarm_set_on">알람이 설정되었습니다.</string>
     <string name="alarm_set_off">알람이 해제되었습니다.</string>
     <string name="list_menu_search">검색</string>
+    <string name="list_menu_search_by_keyword">키워드 검색(%1$s)</string>
     <string name="search_hint">주종·품명·도수·키워드</string>
     <string name="top_rank_main_text">TOP RANK</string>
     <string name="top_rank_drinkTimes">횟수</string>
@@ -200,6 +207,7 @@
     <string name="top_rank_drinkType_number">주종 수</string>
     <string name="top_rank_drinkName_number">제품 수</string>
     <string name="keyword_empty">키워드 없음\n(추가하려면 + 터치)</string>
+    <string name="keyword_empty_ver2">키워드 없음</string>
     <string name="apply">적용하기</string>
     <string name="delete_keyword">삭제하기</string>
     <string name="delete_keyword_title">삭제할 키워드 선택</string>
@@ -213,39 +221,135 @@
     <string name="setting_quest_title">달성 목표</string>
     <string name="completed_quest_empty">아직 달성한 목표가 없습니다.</string>
     <string name="new_quest_completed">새로운 목표를 달성했습니다.</string>
-    <string name="value_any_category">모든 종류</string>
-    <string name="value_any_city">생산지</string>
+    <string name="alarm_warning_text">※ 배터리 소모 최소화를 위해 시간 오차가 있을 수 있음</string>
+    <string name="login_with_bio_setting_BIOMETRIC_STATUS_UNKNOWN">기기의 생체 인증 정보를 다시 확인해주세요.</string>
+    <string name="share_btn_text">공유하기(%1$d)</string>
+    <string name="search_btn_text">검색하기(%1$d)</string>
+    <string name="share_btn_basic_text">공유하기(0)</string>
+    <string name="drinkType_drinkName_sharing"># 주종 및 제품 비율</string>
+    <string name="choose_share_item_title"># 공유 항목 선택</string>
+    <string name="share_image_fail_message">확인할 수 없는 기록이 있습니다.</string>
+    <string name="setting_billing">후원하기</string>
+    <string name="temporary_storage">임시저장</string>
+    <string name="widget_title">포토마크</string>
+    <string name="widget_saved_completed">임시저장 완료</string>
+    <string name="search_keyword_dialog_title"># 검색 키워드 선택</string>
+    <string name="searched_number">검색하기(0)</string>
+    <string name="alarm_notification_channel_id_for_fireBase">공지사항 알람</string>
+    <string name="alarm_notification_channel_name_for_fireBase">공지사항 및 참여</string>
+    <string name="notification_channel_description_for_fireBase">공지사항 및 기타 알림</string>
+    <string name="fireBase_live_title">앱을 사용 중이시군요! 반가워요. :)</string>
+    <string name="spinner_search">검색</string>
+    <string name="spinner_search_beta">Beta</string>
+    <string name="no_search_result">검색 결과가 없습니다.</string>
+    <string name="search_product_name">제품명 검색</string>
+    <string name="no_search_network">인터넷에 연결되지 않았습니다.</string>
+    <string name="theme_type_font">글씨체</string>
+    <string name="theme_type_theme">테마</string>
+    <string name="theme_applied">적용 중</string>
+    <string name="theme_lock">목표 달성 시, 잠금해제</string>
+    <string name="theme_delete_and_restart">테마 삭제됨</string>
+    <string name="delete_theme_double_check">테마를 삭제하시겠습니까?\n(테마가 초기화됩니다.)</string>
+    <string name="theme_applied_warning">적용 중인 테마 삭제</string>
+    <string name="retained_theme_empty">보유 중인 테마가 없습니다.</string>
+    <string name="theme_down_completed">설치완료</string>
+    <string name="theme_down_message">용량은 %1$sMB 입니다.\n설치하시겠습니까?</string>
+    <string name="custom_theme">커스텀 테마</string>
+    <string name="no_theme_to_apply">적용할 수 있는 테마가 없습니다.</string>
+    <string name="custom_theme_setting">커스텀 테마 설정</string>
+    <string name="theme_management">테마 관리</string>
+    <string name="management">관리</string>
+    <string name="theme_lock_out">잠금 해제됨</string>
+    <string name="invalid_emailAddress">잘못된 이메일 주소입니다.</string>
+    <string name="login_suggest">로그인하셔야 이용가능합니다.\n로그인하시겠습니까?</string>
+    <string name="need_login">로그인 필요</string>
+    <string name="restore">복원하기</string>
+    <string name="recent_backup">최근 백업 : </string>
+    <string name="back_up_to_server_completed">백업 완료</string>
+    <string name="back_up_to_server_failed">백업 실패</string>
+    <string name="no_backup_data">백업 이력 없음</string>
+    <string name="reconfirmation_backup">복원하시겠습니까?\n%1$s\n백업 이후의 기록은 모두 삭제됩니다.</string>
+    <string name="account">계정</string>
+    <string name="logout_completed">로그아웃되었습니다.</string>
+    <string name="login_failed_invalid_action_code">로그인 실패\n링크가 만료되었습니다.</string>
+    <string name="email_link_login_failed">로그인 실패</string>
+    <string name="login_completed">로그인 완료</string>
+    <string name="email_sent">인증 링크가 전송되었습니다.\n이메일을 확인해주십시오.</string>
+    <string name="email_sent_failed">인증 링크 전송실패</string>
+    <string name="login">로그인</string>
+    <string name="login_cancelled">로그인 취소</string>
+    <string name="network_error">인터넷 연결을 확인해주세요.</string>
+    <string name="retry_after_logout">로그아웃 후, 재시도하세요.</string>
+    <string name="no_linked_google_account">기기에 등록된 구글 계정이 없습니다.</string>
+    <string name="login_failed_cancel_error">로그인 취소가 너무 많습니다.\n24시간 후에 재시도해주세요.</string>
+    <string name="restore_completed">복원 완료\n앱을 재실행합니다.</string>
+    <string name="restore_failed">복원 실패</string>
+    <string name="restore_failed_file_load_error">복원 파일을 불러올 수 없습니다.</string>
+    <string name="restore_file_empty">해당 계정에 백업 파일이 없습니다.</string>
+    <string name="email_address">이메일 주소</string>
+    <string name="input_email_address"># 이메일 주소를 입력하세요.</string>
+    <string name="app_name_for_layout">주 량 일 기</string>
+    <string name="incorrect_email_address">이메일 주소를 정확하게 입력해주세요.</string>
+    <string name="certified_account">인증됨</string>
+    <string name="uncertified_account">인증 안됨</string>
+    <string name="guest">손님</string>
+    <string name="email">이메일</string>
+    <string name="account_name">이름(별명)</string>
+    <string name="email_address_authentication">이메일 주소 인증</string>
+    <string name="logout">로그아웃</string>
+    <string name="edit_profile_image">이미지 수정</string>
+    <string name="edit_profile_name">이름 수정</string>
+    <string name="image_apply_question">이미지를 적용하시겠습니까?</string>
+    <string name="input_profileName">변경할 이름을 입력하세요.</string>
+    <string name="profile_image_empty">업로드할 이미지가 없습니다.</string>
+    <string name="login_with_email_link">이메일 링크로 로그인</string>
+    <string name="logout_check">로그아웃하시겠습니까?</string>
+    <string name="backup">백업</string>
+    <string name="backup_check">백업하시겠습니까?\n%1$s\n백업 파일을 덮어씁니다.</string>
+    <string name="back_await">%1$d분 이후에 재시도해주세요.</string>
+    <string name="invalid_password">6자 이상</string>
+    <string name="incorrect_login_info">다시 확인해주세요.</string>
+    <string name="username_condition">한글 또는 영문만 가능(10자 이내)</string>
+    <string name="password_condition">영문,숫자,특수문자 포함(6자 이상)</string>
+    <string name="password_check_error">일치하지 않습니다.</string>
+    <string name="wrong_form">잘못된 형식입니다.</string>
+    <string name="terms_and_condition_accept">주량일기 서비스 약관에 동의해주세요.</string>
+    <string name="agree_with_you_all">모두 동의합니다.</string>
+    <string name="agree_age">[필수] 만 14세 이상입니다.</string>
+    <string name="agree_service">[필수] 주량일기 서비스 이용약관 동의</string>
+    <string name="agree_personal">[필수] 개인정보 수집 및 이용 동의</string>
+    <string name="agree_and_continue">동의하고 계속하기</string>
+    <string name="terms_and_condition_service_title">서비스 이용약관</string>
+    <string name="terms_and_condition_personal_title">개인정보 수집 및 이용 동의 안내</string>
+    <string name="delete_account">회원탈퇴</string>
+    <string name="create_account">회원가입</string>
+    <string name="reset_password">비밀번호 재설정</string>
+    <string name="loading_wait">잠시만 기다려주세요.</string>
+    <string name="password">비밀번호</string>
+    <string name="app_slogan">다이어리에 기록하는 술한잔 이야기</string>
+    <string name="email_check">인증 가능한 이메일 주소</string>
+    <string name="password_check">비밀번호 확인</string>
+    <string name="finish">완료</string>
+    <string name="warning_delete_account">회원 탈퇴하시겠습니까?\n계정 정보와 관련된 모든 기록이 삭제됩니다.</string>
+    <string name="delete_account_failed_retry">다시 로그인 후, 시도해주십시오.</string>
+    <string name="delete_account_failed">로그아웃해주세요.</string>
+    <string name="login_first">%1$s님,\n환영합니다!</string>
+    <string name="wrong_password">패스워드가 틀립니다.</string>
+    <string name="password_count_exceeded">패스워드 인증 횟수 초과\n나중에 다시 시도해주세요.</string>
+    <string name="delete_account_completed">회원탈퇴되었습니다.</string>
+    <string name="input_password">패스워드를 입력해주세요.</string>
+    <string name="password_change_email_sent">해당 주소로 비밀번호 변경 링크가 발송되었습니다.</string>
+    <string name="create_account_completed">회원가입이 완료되었습니다.</string>
+    <string name="account_already_exist">로그인된 계정이 있습니다.</string>
+    <string name="check_again_input_info">입력한 정보를 다시 확인해주세요.</string>
+    <string name="email_already_exist">동일한 이메일이 이미 존재합니다.</string>
+    <string name="create_account_failed">회원가입에 실패했습니다.</string>
+    <string name="not_exist_id">해당 ID는 존재하지 않습니다.</string>
+    <string name="password_reset">비밀번호 재설정</string>
+    <string name="input_emali_address_to_change_password">비밀번호를 변경할 이메일 주소를 입력하세요.</string>
+    <string name="reAuthenticate_before_delete_account">탈퇴 전 계정 재인증합니다.</string>
+    <string name="welcome">어서오세용</string>
 
-
-    <!--퀘스트 관련 키워드-->
-    <string name="v1_q1_title">작심삼일</string>
-    <string name="v1_q2_title">멀티플레이어</string>
-    <string name="v1_q3_title">올라운더</string>
-    <string name="v1_q4_title">원데이원알콜</string>
-    <string name="v1_q5_title">알콜콜렉터</string>
-    <string name="v1_q6_title">박수</string>
-    <string name="v1_q7_title">대한민국X2</string>
-    <string name="v1_q8_title">인생의 쓴맛</string>
-    <string name="v1_q9_title">용자</string>
-    <string name="v1_q10_title">열반의 경지</string>
-    <string name="v1_q11_title">술로 한 달 살기</string>
-    <string name="v1_q12_title">눈으로 기억하기</string>
-    <string name="v1_q13_title">지켜보고 있다</string>
-    <string name="v1_q1_sub">기록 3일</string>
-    <string name="v1_q2_sub">주종 3개</string>
-    <string name="v1_q3_sub">주종 11개</string>
-    <string name="v1_q4_sub">제품 7개</string>
-    <string name="v1_q5_sub">제품 30개</string>
-    <string name="v1_q6_sub">알콜섭취량 소주 30병</string>
-    <string name="v1_q7_sub">알콜섭취량 소주 300병</string>
-    <string name="v1_q8_sub">최대 도수 20도</string>
-    <string name="v1_q9_sub">최대 도수 40도</string>
-    <string name="v1_q10_sub">최대 도수 50도</string>
-    <string name="v1_q11_sub">기록 30일</string>
-    <string name="v1_q12_sub">사진 업로드 3개</string>
-    <string name="v1_q13_sub">사진 업로드 30개</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="notification_channelId">채널 아이디</string>
     <string name="fcm_message">FCM 메세지</string>
     <string name="sort_by_rating">별점순</string>
@@ -259,7 +363,12 @@
     <string name="sorted_by_price">가격순 정렬</string>
     <string name="sorted_by_popularity">인기순 정렬</string>
     <string name="sorted_by_rating">별점순 정렬</string>
-
+    <string name="value_any_category">모든 종류</string>
+    <string name="value_any_city">생산지</string>
+    <string name="KakaoNativeAppKey">26d9280e4780179cfeab330c97c15c9c</string>
+    <string name="your_web_client_id">832084630220-8ntiqcgu0m7lakrs92gtnpfu28dk8cnm.apps.googleusercontent.com</string>
+    <string name="invalid_username">부정확한 이름</string>
+    <string name="app_manager">관리자</string>
 
     <!-- Types of food I could think of in 5 minutes -->
     <string-array name="categories">
@@ -347,5 +456,10 @@
         <item>@string/sort_by_popularity</item>
         <item>@string/sort_by_price</item>
     </string-array>
+
+    <string name="added">added</string>
+    <string name="modified">modified</string>
+    <string name="removed">removed</string>
+
 
 </resources>

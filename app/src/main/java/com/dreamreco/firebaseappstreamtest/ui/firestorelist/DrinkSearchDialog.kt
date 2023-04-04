@@ -20,7 +20,6 @@ import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 
-//TODO : FireStore FTS 구현하기
 class DrinkSearchDialog : DialogFragment(), WineAdapter.OnRestaurantSelectedListener,
     EventListener<QuerySnapshot> {
 
@@ -136,7 +135,6 @@ class DrinkSearchDialog : DialogFragment(), WineAdapter.OnRestaurantSelectedList
 
             var filterQuery: Query = fireStore.collection(mCollectionName!!)
 
-            //TODO : 쿼리 필터링 하기
             filterQuery = filterQuery.whereGreaterThanOrEqualTo(CustomDrink.FIELD_NAME, text)
             filterQuery = filterQuery.limit(50.toLong())
 

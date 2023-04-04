@@ -34,6 +34,9 @@ import com.prolificinteractive.materialcalendarview.CalendarDay
 import kotlinx.parcelize.Parcelize
 import java.io.InputStream
 import java.text.SimpleDateFormat
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 import java.util.concurrent.TimeUnit
 
 @Parcelize
@@ -174,6 +177,22 @@ val GET_DATA_PERMISSIONS = arrayOf(
 
 val CAMERA_PERMISSION =
     arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+
+object FireStoreConst {
+    const val LIMIT : Long = 3
+    const val QNA_COLLECTION = "QuestionAndAnswerBoard"
+    const val QNA_COLLECTION_ORDER_1 = "boardWriter"
+    const val QNA_COLLECTION_ORDER_2 = "timestamp"
+    const val QNA_REPLY_COLLECTION = "reply"
+}
+
+enum class PageState {
+    FIRST_PAGE,
+    LAST_PAGE,
+    MIDDLE_PAGE
+}
+
+
 
 // view 의 폰트를 변경하는 함수
 fun setGlobalFont(view: View?, typeface: Typeface) {
@@ -565,6 +584,21 @@ fun getScreenWidth(context: Context): Int {
         val displayMetrics = DisplayMetrics()
         wm.defaultDisplay.getMetrics(displayMetrics)
         displayMetrics.widthPixels
+    }
+}
+
+// 디스플레이의 세로길이를 구하는 함수
+fun getScreenHeight(context: Context): Int {
+    val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        val windowMetrics = wm.currentWindowMetrics
+        val insets = windowMetrics.windowInsets
+            .getInsetsIgnoringVisibility(WindowInsets.Type.systemBars())
+        windowMetrics.bounds.height() - insets.top - insets.bottom
+    } else {
+        val displayMetrics = DisplayMetrics()
+        wm.defaultDisplay.getMetrics(displayMetrics)
+        displayMetrics.heightPixels
     }
 }
 

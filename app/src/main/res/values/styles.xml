@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 둥근 이미지뷰 스타일 #2 -->
+    <style name="ImageView.Round" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>

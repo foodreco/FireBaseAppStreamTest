@@ -2,6 +2,7 @@ package com.dreamreco.firebaseappstreamtest.room.dao
 
 import androidx.room.*
 import android.net.Uri
+import androidx.sqlite.db.SupportSQLiteQuery
 import com.dreamreco.firebaseappstreamtest.room.entity.DiaryBase
 import com.dreamreco.firebaseappstreamtest.util.MyDate
 import com.dreamreco.firebaseappstreamtest.util.MyDrink
@@ -142,6 +143,11 @@ interface DiaryBaseDao {
     // 모든 데이터를 가져오는 함수
     @Query("SELECT * FROM diary_base ORDER BY dateForSort ASC")
     fun getAllDiaryBase(): Flow<List<DiaryBase>>
+
+
+
+    @RawQuery
+    suspend fun checkpoint(supportSQLiteQuery: SupportSQLiteQuery) : Int
 
 }
 
