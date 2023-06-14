@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.fireStoreStatistics.FireStoreStatisticsFragment">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="통계 관련 테스트 입니다." />
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/record_rank"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="기록 순위" />
+
+                <TextView
+                    android:id="@+id/volume_rank"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="주량 순위" />
+
+                <TextView
+                    android:id="@+id/types_rank"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="다양성 순위" />
+
+                <TextView
+                    android:id="@+id/names_rank"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="제품 순위" />
+
+                <TextView
+                    android:id="@+id/alcohols_rank"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="알콜 순위" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="4dp">
+
+            <EditText
+                android:id="@+id/record_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="기록 수"
+                android:imeOptions="actionNext"
+                android:importantForAccessibility="yes"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:selectAllOnFocus="true"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="4dp">
+
+            <EditText
+                android:id="@+id/volume_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="주량"
+                android:imeOptions="actionNext"
+                android:importantForAccessibility="yes"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:selectAllOnFocus="true"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="4dp">
+
+            <EditText
+                android:id="@+id/alcohols_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="알콜량"
+                android:imeOptions="actionNext"
+                android:importantForAccessibility="yes"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:selectAllOnFocus="true"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="4dp">
+
+            <EditText
+                android:id="@+id/frequency_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="월 빈도 수"
+                android:imeOptions="actionNext"
+                android:importantForAccessibility="yes"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:selectAllOnFocus="true"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="4dp">
+
+            <EditText
+                android:id="@+id/types_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="주종 수"
+                android:imeOptions="actionNext"
+                android:importantForAccessibility="yes"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:selectAllOnFocus="true"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="4dp">
+
+            <EditText
+                android:id="@+id/names_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="제품 수"
+                android:imeOptions="actionNext"
+                android:importantForAccessibility="yes"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:selectAllOnFocus="true"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_to_updateRecord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="업데이트" />
+
+        <Button
+            android:id="@+id/btn_to_read"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="읽기" />
+
+        <Button
+            android:id="@+id/btn_to_init"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="기록 초기화" />
+
+        <Button
+            android:id="@+id/btn_to_init_rank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="순위 불러오기" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

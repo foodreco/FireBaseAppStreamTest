@@ -19,6 +19,16 @@
       "predeploy": [
         "npm --prefix \"$RESOURCE_DIR\" run lint"
       ]
+    },
+    {
+      "source": "function_test",
+      "codebase": "function_test",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ]
     }
   ],
   "storage": {

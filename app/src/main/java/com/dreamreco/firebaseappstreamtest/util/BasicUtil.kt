@@ -11,6 +11,7 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Build
+import android.os.Bundle
 import android.os.Parcelable
 import android.util.DisplayMetrics
 import android.util.Log
@@ -30,6 +31,7 @@ import androidx.navigation.NavController
 import com.dreamreco.firebaseappstreamtest.MyApplication
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import kotlinx.parcelize.Parcelize
 import java.io.InputStream
@@ -93,6 +95,32 @@ fun Button.clearFocusAndHideKeyboard(context: Context) {
             context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(this.windowToken, 0)
     }, 30)
+}
+
+fun actionEventLogToFireBase(value: String) {
+    val bundle = Bundle().apply {
+        putString("event_name", "joodiary_action_event")
+        putString(FirebaseAnalytics.Param.METHOD, value)
+    }
+    MyApplication.mFirebaseAnalytics.logEvent("joodiary_action_event", bundle)
+}
+
+
+fun actionEventLogToFireBaseTest(value: String) {
+    val bundle = Bundle().apply {
+        putString("event_name", "joodiary_action_event_test")
+        putString(FirebaseAnalytics.Param.SCREEN_NAME, value)
+        putString("액션", value)
+    }
+    MyApplication.mFirebaseAnalytics.logEvent("joodiary_action_event_test", bundle)
+}
+
+fun screenLogToFireBase(screenName: String, screenClass: String) {
+    val screenViewBundle = Bundle()
+    screenViewBundle.putString("화면", screenName)
+    screenViewBundle.putString(FirebaseAnalytics.Param.SCREEN_NAME, screenName)
+    screenViewBundle.putString(FirebaseAnalytics.Param.SCREEN_CLASS, screenClass)
+    MyApplication.mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW, screenViewBundle)
 }
 
 const val LOAD_NOTHING = 0

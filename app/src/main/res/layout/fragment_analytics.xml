@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.analytics.AnalyticsFragment">
+
+
+    <Button
+        android:id="@+id/btn_first"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:text="하나가" />
+
+    <Button
+        android:layout_marginTop="12dp"
+        android:layout_gravity="center"
+        android:id="@+id/btn_second"
+        android:text="둘이되고"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_marginTop="12dp"
+        android:layout_gravity="center"
+        android:id="@+id/btn_third"
+        android:text="둘이"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_marginTop="12dp"
+        android:layout_gravity="center"
+        android:id="@+id/btn_fourth"
+        android:text="셋이된다."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

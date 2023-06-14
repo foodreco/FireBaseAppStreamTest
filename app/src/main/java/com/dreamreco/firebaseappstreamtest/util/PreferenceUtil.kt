@@ -25,9 +25,18 @@ class PreferenceUtil(context: Context) {
         prefs.edit().putInt(key, int).apply()
     }
 
-    fun removeString(key: String) {
+    fun removePref(key: String) {
         val editor = prefs.edit()
         editor.remove(key)
         editor.apply()
     }
+
+    fun getLong(key: String, defValue: Long): Long {
+        return prefs.getLong(key, defValue)
+    }
+
+    fun setLong(key: String, defValue: Long) {
+        prefs.edit().putLong(key, defValue).apply()
+    }
+
 }

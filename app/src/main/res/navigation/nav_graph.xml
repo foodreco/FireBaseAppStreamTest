@@ -33,6 +33,12 @@
         <action
             android:id="@+id/action_mainFragment_to_questionAndAnswerFragment"
             app:destination="@id/questionAndAnswerFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_analyticsFragment"
+            app:destination="@id/analyticsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_fireStoreStatisticsFragment"
+            app:destination="@id/fireStoreStatisticsFragment" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"
@@ -112,9 +118,6 @@
         android:label="fragment_question_and_answer"
         tools:layout="@layout/fragment_question_and_answer" >
         <action
-            android:id="@+id/action_questionAndAnswerFragment_to_questionAndAnswerWriteFragment"
-            app:destination="@id/questionAndAnswerWriteFragment" />
-        <action
             android:id="@+id/action_questionAndAnswerFragment_to_questionAndAnswerEditFragment"
             app:destination="@id/questionAndAnswerEditFragment" />
     </fragment>
@@ -122,8 +125,7 @@
         android:id="@+id/questionAndAnswerWriteFragment"
         android:name="com.dreamreco.firebaseappstreamtest.ui.qna.QuestionAndAnswerWriteFragment"
         android:label="QuestionAndAnswerWriteFragment"
-        tools:layout="@layout/fragment_question_and_answer_write">
-    </fragment>
+        tools:layout="@layout/fragment_question_and_answer_write"/>
     <fragment
         android:id="@+id/questionAndAnswerEditFragment"
         android:name="com.dreamreco.firebaseappstreamtest.ui.qna.QuestionAndAnswerEditFragment"
@@ -131,5 +133,19 @@
         <argument
             android:name="boardContent"
             app:argType="com.dreamreco.firebaseappstreamtest.repository.QuestionAndAnswerEditClass"/>
+        <action
+            android:id="@+id/action_questionAndAnswerEditFragment_to_questionAndAnswerFragment"
+            app:destination="@id/questionAndAnswerFragment"
+            app:popUpTo="@id/mainFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/analyticsFragment"
+        android:name="com.dreamreco.firebaseappstreamtest.ui.analytics.AnalyticsFragment"
+        android:label="fragment_analytics"
+        tools:layout="@layout/fragment_analytics" />
+    <fragment
+        android:id="@+id/fireStoreStatisticsFragment"
+        android:name="com.dreamreco.firebaseappstreamtest.ui.fireStoreStatistics.FireStoreStatisticsFragment"
+        android:label="fragment_fire_store_statistics"
+        tools:layout="@layout/fragment_fire_store_statistics" />
 </navigation>

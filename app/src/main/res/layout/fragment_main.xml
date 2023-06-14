@@ -166,6 +166,16 @@
             app:layout_constraintTop_toBottomOf="@id/btn_to_fireStore_list" />
 
         <Button
+            android:id="@+id/btn_to_fireStatistics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="통계 관련 테스트"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_to_search_dialog" />
+
+        <Button
             android:id="@+id/btn_to_FTS_test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -173,7 +183,7 @@
             android:text="FTS 테스트 하기"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_to_search_dialog" />
+            app:layout_constraintTop_toBottomOf="@id/btn_to_fireStatistics" />
 
         <Button
             android:id="@+id/btn_delete"
@@ -291,6 +301,36 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/divider_4" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider_5"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_move_to_board" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Analytics 테스트"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_5" />
+
+        <Button
+            android:id="@+id/btn_move_to_analytics_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:text="이동해서 테스트하기"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

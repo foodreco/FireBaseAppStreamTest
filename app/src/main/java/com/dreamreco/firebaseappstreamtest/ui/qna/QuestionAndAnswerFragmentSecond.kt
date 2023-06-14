@@ -89,9 +89,9 @@ class QuestionAndAnswerFragmentSecond : Fragment(), com.google.firebase.firestor
             btnWriteQuestion.setOnClickListener {
                 if (user != null) {
                     Log.e(TAG, "질문 작성하기")
-                    it.findNavController().navigate(
-                        QuestionAndAnswerFragmentDirections.actionQuestionAndAnswerFragmentToQuestionAndAnswerWriteFragment()
-                    )
+//                    it.findNavController().navigate(
+//                        QuestionAndAnswerFragmentDirections.actionQuestionAndAnswerFragmentToQuestionAndAnswerWriteFragment()
+//                    )
                 } else {
                     loginSuggest()
                 }

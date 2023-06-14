@@ -170,6 +170,10 @@ class MainFragment : Fragment(), OnFailureListener {
                 dialog.show(childFragmentManager, "DrinkSearchDialog")
             }
 
+            btnToFireStatistics.setOnClickListener {
+                it.findNavController().navigate(MainFragmentDirections.actionMainFragmentToFireStoreStatisticsFragment())
+            }
+
             btnToFTSTest.setOnClickListener {
                 it.findNavController()
                     .navigate(MainFragmentDirections.actionMainFragmentToFTSFragment())
@@ -271,6 +275,10 @@ class MainFragment : Fragment(), OnFailureListener {
             /** 게시판으로 이동하는 버튼 */
             btnMoveToBoard.setOnClickListener {
                 it.findNavController().navigate(R.id.action_mainFragment_to_questionAndAnswerFragment)
+            }
+
+            btnMoveToAnalyticsTest.setOnClickListener {
+                it.findNavController().navigate(R.id.action_mainFragment_to_analyticsFragment)
             }
         }
 
