@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_mainFragment_to_fireStoreStatisticsFragment"
             app:destination="@id/fireStoreStatisticsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_radarChartFragment"
+            app:destination="@id/radarChartFragment" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"
@@ -148,4 +151,9 @@
         android:name="com.dreamreco.firebaseappstreamtest.ui.fireStoreStatistics.FireStoreStatisticsFragment"
         android:label="fragment_fire_store_statistics"
         tools:layout="@layout/fragment_fire_store_statistics" />
+    <fragment
+        android:id="@+id/radarChartFragment"
+        android:name="com.dreamreco.firebaseappstreamtest.ui.chart.RadarChartFragment"
+        tools:layout="@layout/radar_chart"
+        android:label="RadarChartFragment" />
 </navigation>

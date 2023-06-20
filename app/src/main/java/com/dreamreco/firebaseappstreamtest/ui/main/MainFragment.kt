@@ -179,6 +179,10 @@ class MainFragment : Fragment(), OnFailureListener {
                     .navigate(MainFragmentDirections.actionMainFragmentToFTSFragment())
             }
 
+            btnMoveToChart.setOnClickListener {
+                it.findNavController().navigate(MainFragmentDirections.actionMainFragmentToRadarChartFragment())
+            }
+
             // 로그아웃 작동
             btnLogOut.setOnClickListener {
                 Log.e("메인조각", "로그아웃 터치 작동")

@@ -133,4 +133,7 @@ dependencies {
     // Exifinterface (이미지 회전)
     implementation "androidx.exifinterface:exifinterface:1.3.3"
 
+    // MP Chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
 }
