@@ -41,6 +41,17 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.concurrent.TimeUnit
 
+
+class LocalDataKey {
+    companion object {
+        const val DATASTORE_TEST_KEY = "dataStore_test_key"
+        const val DATASTORE_TEST_KEY2 = "dataStore_test_key2"
+        const val DATASTORE_TEST_KEY3 = "dataStore_test_key3"
+        const val DATASTORE_TEST_KEY4 = "dataStore_test_key4"
+        const val DATASTORE_TEST_KEY5 = "dataStore_test_key5"
+    }
+}
+
 @Parcelize
 data class MyDate(
     var year: Int,

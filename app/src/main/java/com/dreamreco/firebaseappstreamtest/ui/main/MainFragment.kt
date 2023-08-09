@@ -1,6 +1,5 @@
 package com.dreamreco.firebaseappstreamtest.ui.main
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -10,49 +9,41 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.annotation.StringRes
-import androidx.appcompat.app.AlertDialog
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.dreamreco.firebaseappstreamtest.MyApplication
 import com.dreamreco.firebaseappstreamtest.R
 import com.dreamreco.firebaseappstreamtest.databinding.FragmentMainBinding
 import com.dreamreco.firebaseappstreamtest.ui.firestorelist.DrinkSearchDialog
-import com.firebase.ui.auth.AuthUI
-import com.firebase.ui.auth.ErrorCodes
-import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
-import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
+import com.dreamreco.firebaseappstreamtest.util.LocalDataKey
+import com.dreamreco.firebaseappstreamtest.util.MyDataStoreUtil
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.FirebaseFirestoreSettings
-import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageException
-import com.google.firebase.storage.ktx.storage
 import com.google.firebase.storage.ktx.storageMetadata
 import com.kakao.sdk.common.util.Utility
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
-import java.io.FileInputStream
 import java.io.IOException
 import java.nio.file.Files
 import java.nio.file.Paths
 import java.util.*
+import javax.inject.Inject
 import kotlin.system.exitProcess
 import kotlin.time.Duration.Companion.days
 import kotlin.time.Duration.Companion.hours
 import kotlin.time.Duration.Companion.minutes
-import kotlin.time.Duration.Companion.seconds
 
 @AndroidEntryPoint
 class MainFragment : Fragment(), OnFailureListener {
@@ -67,6 +58,9 @@ class MainFragment : Fragment(), OnFailureListener {
     private lateinit var mFirebaseAnalytics: FirebaseAnalytics
     private lateinit var storage: FirebaseStorage
     private lateinit var auth: FirebaseAuth
+
+    @Inject
+    lateinit var myDataStoreUtil: MyDataStoreUtil
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -121,25 +115,45 @@ class MainFragment : Fragment(), OnFailureListener {
 
 
             btnCustom1.setOnClickListener {
-                val bundle = Bundle()
-                bundle.putString("이름", "버튼")
-                bundle.putString("장소", "메인조각")
-                bundle.putString("이벤트", "btnCustom1")
-                mFirebaseAnalytics.logEvent("myCustomEvent", bundle)
+                Toast.makeText(requireContext(),"dataStore 저장",Toast.LENGTH_SHORT).show()
+                lifecycleScope.launchWhenCreated {
+                    myDataStoreUtil.saveDataToDataStore(LocalDataKey.DATASTORE_TEST_KEY,"좋아")
+                    myDataStoreUtil.saveDataToDataStore(LocalDataKey.DATASTORE_TEST_KEY2,1)
+                    myDataStoreUtil.saveDataToDataStore(LocalDataKey.DATASTORE_TEST_KEY3,23451233551)
+                    myDataStoreUtil.saveDataToDataStore(LocalDataKey.DATASTORE_TEST_KEY4,true)
+                    myDataStoreUtil.saveDataToDataStore(LocalDataKey.DATASTORE_TEST_KEY5, listOf("hello","world!!"))
+                }
             }
             btnCustom2.setOnClickListener {
-                val bundle = Bundle()
-                bundle.putString("이름", "버튼")
-                bundle.putString("장소", "메인조각")
-                bundle.putString("이벤트", "btnCustom2")
-                mFirebaseAnalytics.logEvent("myCustomEvent", bundle)
+                Toast.makeText(requireContext(),"dataStore 읽기",Toast.LENGTH_SHORT).show()
+                lifecycleScope.launchWhenCreated {
+                    myDataStoreUtil.getStringDataFromDataStore(requireContext(),LocalDataKey.DATASTORE_TEST_KEY, "없음").collect { value ->
+                        Log.e("DataStore 테스트","String : $value")
+                    }}
+                lifecycleScope.launchWhenCreated {
+                    myDataStoreUtil.getIntDataFromDataStore(requireContext(),LocalDataKey.DATASTORE_TEST_KEY2, 0).collect { value ->
+                        Log.e("DataStore 테스트","Int : $value")
+                    }}
+                lifecycleScope.launchWhenCreated {
+                    myDataStoreUtil.getLongDataFromDataStore(requireContext(),LocalDataKey.DATASTORE_TEST_KEY3, 0).collect { value ->
+                        Log.e("DataStore 테스트","Long : $value")
+                    }}
+                lifecycleScope.launchWhenCreated {
+                    myDataStoreUtil.getBooleanDataFromDataStore(requireContext(),LocalDataKey.DATASTORE_TEST_KEY4, null).collect { value ->
+                        Log.e("DataStore 테스트","Boolean : $value")
+                    }}
+                lifecycleScope.launchWhenCreated {
+                    myDataStoreUtil.getStringListDataFromDataStore(requireContext(),LocalDataKey.DATASTORE_TEST_KEY5).collect { value ->
+                        Log.e("DataStore 테스트","List : $value")
+                    }
+                }
             }
             btnCustom3.setOnClickListener {
-                val bundle = Bundle()
-                bundle.putString("이름", "버튼")
-                bundle.putString("장소", "메인조각")
-                bundle.putString("이벤트", "btnCustom3")
-                mFirebaseAnalytics.logEvent("myCustomEvent", bundle)
+//                val bundle = Bundle()
+//                bundle.putString("이름", "버튼")
+//                bundle.putString("장소", "메인조각")
+//                bundle.putString("이벤트", "btnCustom3")
+//                mFirebaseAnalytics.logEvent("myCustomEvent", bundle)
             }
 
             // Firebase Message 토큰을 불러오는 코드
@@ -283,6 +297,10 @@ class MainFragment : Fragment(), OnFailureListener {
 
             btnMoveToAnalyticsTest.setOnClickListener {
                 it.findNavController().navigate(R.id.action_mainFragment_to_analyticsFragment)
+            }
+
+            btnToMoveRealTime.setOnClickListener {
+                it.findNavController().navigate(R.id.action_mainFragment_to_realTimeFragment)
             }
         }
 

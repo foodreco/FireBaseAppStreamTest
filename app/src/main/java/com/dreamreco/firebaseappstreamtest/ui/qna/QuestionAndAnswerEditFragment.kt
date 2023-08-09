@@ -17,6 +17,7 @@ import com.dreamreco.firebaseappstreamtest.databinding.FragmentQuestionAndAnswer
 import com.dreamreco.firebaseappstreamtest.repository.QuestionAndAnswerEditClass
 import com.dreamreco.firebaseappstreamtest.repository.ReplyClass
 import com.dreamreco.firebaseappstreamtest.ui.firestorefts.FireStoreAdapter
+import com.dreamreco.firebaseappstreamtest.util.FireBaseModule
 import com.dreamreco.firebaseappstreamtest.util.MyCustomFragment
 import com.dreamreco.firebaseappstreamtest.util.clearFocusAndHideKeyboard
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -46,16 +47,17 @@ class QuestionAndAnswerEditFragment : MyCustomFragment(), ReplyAdapter.OnReplySe
     private var mAdapter: ReplyAdapter? = null
     private var query: Query? = null
 
-    private var editActionCompletedListener : EditActionCompletedListener? = null
+    private var editActionCompletedListener: EditActionCompletedListener? = null
 
     companion object {
-        private const val TAG = "QuestionAndAnswerWriteFragment"
+        private const val TAG = "QuestionAndAnswerEditFragment"
     }
 
     interface EditActionCompletedListener {
-        fun onJobDone(){
+        fun onJobDone() {
         }
     }
+
     fun setEditActionCompletedListener(listener: EditActionCompletedListener) {
         this.editActionCompletedListener = listener
     }
@@ -86,7 +88,10 @@ class QuestionAndAnswerEditFragment : MyCustomFragment(), ReplyAdapter.OnReplySe
             dialogTitle.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
 
             if (arg.boardContent.timestamp != null) {
-                dialogDate.text = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(arg.boardContent.timestamp!!)
+                dialogDate.text = SimpleDateFormat(
+                    "yyyy-MM-dd",
+                    Locale.getDefault()
+                ).format(arg.boardContent.timestamp!!)
             }
             dialogContent.setText(arg.boardContent.content)
             dialogContent.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
@@ -148,6 +153,10 @@ class QuestionAndAnswerEditFragment : MyCustomFragment(), ReplyAdapter.OnReplySe
                 addReply()
             }
 
+            binding.dialogDelete.setOnClickListener {
+                deleteBoard()
+            }
+
             setAndLoadReplyData()
         }
 
@@ -160,10 +169,24 @@ class QuestionAndAnswerEditFragment : MyCustomFragment(), ReplyAdapter.OnReplySe
                         Toast.makeText(requireContext(), "수정되었습니다.", Toast.LENGTH_SHORT).show()
                         findNavController().navigateUp()
                     }
+
                     else -> Toast.makeText(requireContext(), "수정실패", Toast.LENGTH_SHORT).show()
                 }
             }
         }
+    }
+
+    /** 게시글을 삭제하는 코드 */
+    private fun deleteBoard() {
+        viewModel.deleteBoard(arg.boardContent.documentId).addOnSuccessListener(requireActivity()) {
+            Log.e(TAG, "delete reply success")
+            Toast.makeText(requireContext(), "게시글 삭제됨", Toast.LENGTH_SHORT).show()
+            findNavController().navigateUp()
+        }
+            .addOnFailureListener(requireActivity()) { e ->
+                Log.e(TAG, "delete reply failed", e)
+                Toast.makeText(requireContext(), "게시글 삭제 실패", Toast.LENGTH_SHORT).show()
+            }
     }
 
     private fun editBoardContent() {
@@ -218,7 +241,7 @@ class QuestionAndAnswerEditFragment : MyCustomFragment(), ReplyAdapter.OnReplySe
         //  query 는 count 어떻게 적용되는지??
         query = viewModel.queryForReply(arg.boardContent.documentId)
         query?.let {
-            mAdapter = object : ReplyAdapter(it, user?.uid, this@QuestionAndAnswerEditFragment) {
+            mAdapter = object : ReplyAdapter(it, FireBaseModule.getUser(), this@QuestionAndAnswerEditFragment) {
                 override fun onError(e: FirebaseFirestoreException) {
                     Snackbar.make(
                         binding.root,
@@ -263,25 +286,29 @@ class QuestionAndAnswerEditFragment : MyCustomFragment(), ReplyAdapter.OnReplySe
 
     /** 답글을 다는 코드 */
     private fun addReply() {
-        // In a transaction, add the new rating and update the aggregate totals
-        viewModel.addReply(
-            user!!,
-            arg.boardContent.documentId,
-            binding.replyEditText.text.trim().toString()
-        )
-            .addOnSuccessListener(requireActivity()) {
-                Log.d(TAG, "reply success")
-                Toast.makeText(requireContext(), "답글 등록", Toast.LENGTH_SHORT).show()
-                // Hide keyboard and scroll to top
-                binding.replyEditText.clearFocusAndHideKeyboard(requireContext())
-                binding.replyEditText.setText("")
-            }
-            .addOnFailureListener(requireActivity()) { e ->
-                Log.e(TAG, "Add reply failed", e)
-                Toast.makeText(requireContext(), "답글 실패", Toast.LENGTH_SHORT).show()
-                // Show failure message and hide keyboard
-                binding.replyEditText.clearFocusAndHideKeyboard(requireContext())
-            }
+        if (user != null) {
+            // In a transaction, add the new rating and update the aggregate totals
+            viewModel.addReply(
+                user!!,
+                arg.boardContent.documentId,
+                binding.replyEditText.text.trim().toString()
+            )
+                .addOnSuccessListener(requireActivity()) {
+                    Log.d(TAG, "reply success")
+                    Toast.makeText(requireContext(), "답글 등록", Toast.LENGTH_SHORT).show()
+                    // Hide keyboard and scroll to top
+                    binding.replyEditText.clearFocusAndHideKeyboard(requireContext())
+                    binding.replyEditText.setText("")
+                }
+                .addOnFailureListener(requireActivity()) { e ->
+                    Log.e(TAG, "Add reply failed", e)
+                    Toast.makeText(requireContext(), "답글 실패", Toast.LENGTH_SHORT).show()
+                    // Show failure message and hide keyboard
+                    binding.replyEditText.clearFocusAndHideKeyboard(requireContext())
+                }
+        } else {
+            Toast.makeText(requireContext(), "로그인 필요",Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onReplyDelete(content: ReplyClass, documentId: String) {

@@ -42,6 +42,9 @@
         <action
             android:id="@+id/action_mainFragment_to_radarChartFragment"
             app:destination="@id/radarChartFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_realTimeFragment"
+            app:destination="@id/realTimeFragment" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"
@@ -156,4 +159,9 @@
         android:name="com.dreamreco.firebaseappstreamtest.ui.chart.RadarChartFragment"
         tools:layout="@layout/radar_chart"
         android:label="RadarChartFragment" />
+    <fragment
+        android:id="@+id/realTimeFragment"
+        android:name="com.dreamreco.firebaseappstreamtest.ui.realtime.RealTimeFragment"
+        android:label="fragment_real_time"
+        tools:layout="@layout/fragment_real_time" />
 </navigation>

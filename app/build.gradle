@@ -81,6 +81,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore-ktx'
     implementation 'com.google.firebase:firebase-storage-ktx'
     implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation("com.google.firebase:firebase-database-ktx")
 
     // FirebaseUI (for authentication 로그인 화면 구성)
     implementation 'com.firebaseui:firebase-ui-auth:8.0.2'
@@ -135,5 +136,11 @@ dependencies {
 
     // MP Chart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+
+    // DataStore 로컬 저장소 (프로가드 필요)
+    implementation("androidx.datastore:datastore-preferences:1.0.0") //Preferences DataStore
+    implementation("androidx.datastore:datastore:1.0.0") //Proto DataStore
+
 
 }

@@ -1,23 +1,19 @@
 package com.dreamreco.firebaseappstreamtest.ui.firestorelist
 
-import android.util.Log
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.google.android.gms.tasks.Task
-import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.StorageReference
-import kotlinx.coroutines.launch
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
 
-class FireStoreListViewModel : ViewModel() {
+@HiltViewModel
+class FireStoreListViewModel @Inject constructor(
+    private val productRepository: ProductRepository, application: Application
+) : AndroidViewModel(application) {
 
     var filters: Filters = Filters.default
-
-    private var productRepository = ProductRepository()
 
     fun getProductNameListLiveData(): MutableLiveData<List<String>> {
         return productRepository.productNameListMutableLiveData
@@ -27,7 +23,11 @@ class FireStoreListViewModel : ViewModel() {
         return productRepository.getDrinkInformationMutableLiveData(productName)
     }
 
-    fun getDrinkInfoImage(type:String, productName: String): LiveData<String?> {
+    fun getDrinkInfoImage(type: String, productName: String): LiveData<String?> {
         return productRepository.getDrinkImageMutableLiveData(type, productName)
+    }
+
+    fun getFireStoreData() : LiveData<List<ReadTest>> {
+        return productRepository.readFireStoreData()
     }
 }

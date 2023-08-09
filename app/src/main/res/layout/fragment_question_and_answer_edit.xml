@@ -71,6 +71,16 @@
             app:layout_constraintEnd_toEndOf="@id/dialog_content_layout"
             app:layout_constraintTop_toTopOf="@id/dialog_title" />
 
+        <TextView
+            android:id="@+id/dialog_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:text="삭제하기"
+            app:layout_constraintBottom_toTopOf="@id/dialog_date"
+            app:layout_constraintEnd_toStartOf="@id/dialog_title"
+            app:layout_constraintTop_toTopOf="@id/dialog_title" />
+
         <EditText
             android:id="@+id/reply_editText"
             android:layout_width="match_parent"

@@ -15,7 +15,9 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FireStoreListFragment : Fragment(), WineAdapter.OnRestaurantSelectedListener, FilterDialogFragment.FilterListener {
 
     private val binding by lazy { FragmentFireStoreListBinding.inflate(layoutInflater) }
@@ -70,6 +72,20 @@ class FireStoreListFragment : Fragment(), WineAdapter.OnRestaurantSelectedListen
             onAddItemsClicked()
         }
 
+        binding.btnToGetFireStore.setOnClickListener {
+            Log.e(TAG,"btnToGetFireStore 터치!")
+            viewModel.getFireStoreData().observe(viewLifecycleOwner) {resultList ->
+                if (resultList == emptyList<ReadTest>()) {
+                    Log.e(TAG,"getFireStoreData() 값 없음")
+                    return@observe
+                }
+
+                for (i in resultList) {
+                    Log.e(TAG,"이름:${i.name} 가격:${i.price}")
+                }
+            }
+        }
+
         filterDialog = FilterDialogFragment()
 
         binding.btnToFilter.setOnClickListener { onFilterClicked() }
@@ -113,17 +129,22 @@ class FireStoreListFragment : Fragment(), WineAdapter.OnRestaurantSelectedListen
     }
 
     private fun onAddItemsClicked() {
-        val wineRef = firestore.collection("wine")
-        for (i in 0..3) {
-            // Create random restaurant / ratings
-            val randomWine = WineUtil.getRandom(requireContext())
+        try {
+            val wineRef = firestore.collection("wine")
+            for (i in 0..3) {
+                // Create random restaurant / ratings
+                val randomWine = WineUtil.getRandom(requireContext())
 
-            Log.e(TAG,"추가와인 : $randomWine")
+                Log.e(TAG, "추가와인 : $randomWine")
 
-            // Add restaurant
-            wineRef.add(randomWine)
+                // Add restaurant
+                wineRef.add(randomWine) // 쓰기??
+            }
+            Toast.makeText(requireContext(), "DB 리스트 추가됨", Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
+            Log.e(TAG, "onAddItemsClicked error",e)
         }
-        Toast.makeText(requireContext(),"DB 리스트 추가됨",Toast.LENGTH_SHORT).show()
+
     }
 
     override fun onFilter(filters: Filters) {

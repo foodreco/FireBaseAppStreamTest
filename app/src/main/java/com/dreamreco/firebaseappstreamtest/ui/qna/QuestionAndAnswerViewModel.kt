@@ -50,7 +50,7 @@ class QuestionAndAnswerViewModel @Inject constructor(
 
     fun addReply(user: FirebaseUser, documentId: String, replyString: String): Task<Void> {
         var writer = user.email!!.substring(0, 3) + "***"
-        if (user.uid == "910Em692hcQUqCdAxisu042rNcm2") {
+        if (user.email == "miny357@gmail.com") {
             writer = app.getString(R.string.app_manager)
         }
         val newReply = ReplyClass(
@@ -152,5 +152,8 @@ class QuestionAndAnswerViewModel @Inject constructor(
         Log.e(TAG, "setListForBoardSecond 작동 : $list")
         _listForBoardSecondAdapter.value = list
     }
+
+    fun deleteBoard(upperDocumentId: String): Task<Void> =
+        mFireBaseRepository.deleteBoard(upperDocumentId)
 
 }

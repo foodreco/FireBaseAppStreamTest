@@ -46,6 +46,17 @@
 #-keep class com.dreamreco.firebaseappstreamtest.ui.firestorelist.Wine.** { *; }
 #-keep class com.dreamreco.firebaseappstreamtest.ui.firestorelist.NewWine.** { *; }
 
+# DataStore
+-keepclassmembers class * extends androidx.datastore.preferences.protobuf.GeneratedMessageLite {
+    <fields>;
+}
+
+# RealTime DataBase
+-keepattributes Signature
+-keepclassmembers class com.yourcompany.models.** {
+      *;
+    }
+
 
 # 카카오 API 적용
 -keep class com.kakao.sdk.**.model.* { <fields>; }

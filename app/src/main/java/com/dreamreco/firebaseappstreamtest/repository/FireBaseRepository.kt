@@ -13,6 +13,7 @@ import androidx.lifecycle.Transformations
 import com.dreamreco.firebaseappstreamtest.MyApplication
 import com.dreamreco.firebaseappstreamtest.room.Database
 import com.dreamreco.firebaseappstreamtest.ui.fireStoreStatistics.StatisticsRecord
+import com.dreamreco.firebaseappstreamtest.ui.qna.QuestionAndAnswerEditFragment
 import com.dreamreco.firebaseappstreamtest.util.FireStoreConst
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.tasks.Tasks
@@ -174,6 +175,16 @@ class FireBaseRepository @Inject constructor(
 
         return fireStoreRef.runTransaction { transaction ->
             transaction.delete(replyRef)
+            null
+        }
+    }
+
+    /** 게시글을 삭제하는 코드 */
+    fun deleteBoard(upperDocumentId: String): Task<Void> {
+        val qnaRef = questionAndAnswerRef.document(upperDocumentId)
+        Log.e("삭제 관련", "문서 uid : ${upperDocumentId}\n 사용자 uid : ${auth.currentUser?.uid}")
+        return fireStoreRef.runTransaction { transaction ->
+            transaction.delete(qnaRef)
             null
         }
     }

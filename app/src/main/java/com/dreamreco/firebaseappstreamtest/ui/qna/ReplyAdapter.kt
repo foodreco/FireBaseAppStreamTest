@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dreamreco.firebaseappstreamtest.databinding.ReplyAdapterChildBinding
 import com.dreamreco.firebaseappstreamtest.ui.firestorefts.FireStoreAdapter
 import com.dreamreco.firebaseappstreamtest.repository.ReplyClass
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.toObject
@@ -17,14 +18,13 @@ import java.util.*
 /**
  * RecyclerView adapter for a list of Restaurants.
  */
-open class ReplyAdapter(query: Query?, myUid : String?, private val listener: OnReplySelectedListener) :
+open class ReplyAdapter(query: Query?, private val userInfo : FirebaseUser?, private val listener: OnReplySelectedListener) :
     FireStoreAdapter<ReplyAdapter.ViewHolder>(query) {
 
     companion object {
         private const val TAG = "ReplyAdapter"
     }
 
-    private var mUid = myUid
 
     interface OnReplySelectedListener {
         fun onReplyDelete(content: ReplyClass, documentId: String)
@@ -59,7 +59,7 @@ open class ReplyAdapter(query: Query?, myUid : String?, private val listener: On
                 return
             }
 
-            if (mUid == replyData.uid) {
+            if ((userInfo?.uid == replyData.uid) || (userInfo?.email == "miny357@gmail.com")) {
                 binding.btnReplyOption.visibility = View.VISIBLE
             } else {
                 binding.btnReplyOption.visibility = View.GONE

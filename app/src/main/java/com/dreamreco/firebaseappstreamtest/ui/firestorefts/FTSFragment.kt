@@ -18,7 +18,9 @@ import com.bumptech.glide.Glide
 import com.dreamreco.firebaseappstreamtest.R
 import com.dreamreco.firebaseappstreamtest.databinding.FragmentFTBinding
 import com.dreamreco.firebaseappstreamtest.ui.firestorelist.*
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FTSFragment : Fragment() {
 
     private val viewModel by viewModels<FireStoreListViewModel>()
